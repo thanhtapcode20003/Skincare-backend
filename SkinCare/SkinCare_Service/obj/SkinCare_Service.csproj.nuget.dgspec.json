@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj": {}
+    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj": {}
   },
   "projects": {
-    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj": {
+    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj",
-        "projectName": "SkinCare",
-        "projectPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj",
+        "projectUniqueName": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
+        "projectName": "SkinCare_Service",
+        "projectPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\obj\\",
+        "outputPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare_Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,12 +50,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.6.2, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -68,9 +62,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

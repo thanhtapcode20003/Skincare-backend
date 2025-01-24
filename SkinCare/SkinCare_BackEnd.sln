@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkinCare", "SkinCare\SkinCare.csproj", "{7A77A169-9CFE-4231-9A5E-928790BBE682}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkinCare_API", "SkinCare\SkinCare_API.csproj", "{7A77A169-9CFE-4231-9A5E-928790BBE682}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkinCare_Data", "SkinCare_Data\SkinCare_Data.csproj", "{F303B8FC-CB81-488D-A1AB-596F55B73EB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkinCare_Service", "SkinCare_Service\SkinCare_Service.csproj", "{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7A77A169-9CFE-4231-9A5E-928790BBE682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A77A169-9CFE-4231-9A5E-928790BBE682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A77A169-9CFE-4231-9A5E-928790BBE682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F303B8FC-CB81-488D-A1AB-596F55B73EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F303B8FC-CB81-488D-A1AB-596F55B73EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F303B8FC-CB81-488D-A1AB-596F55B73EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F303B8FC-CB81-488D-A1AB-596F55B73EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

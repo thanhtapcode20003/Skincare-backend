@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj": {}
+    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_Backend.csproj": {}
   },
   "projects": {
-    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj": {
+    "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj",
-        "projectName": "SkinCare",
-        "projectPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare.csproj",
+        "projectUniqueName": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_Backend.csproj",
+        "projectName": "SkinCare_Backend",
+        "projectPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_Backend.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
         "outputPath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\obj\\",
         "projectStyle": "PackageReference",
