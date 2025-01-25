@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SkinCare_API.props" />
+</Project>

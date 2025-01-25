@@ -1,36 +1,42 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using SkinCare_Data;
 
-namespace SkinCare
+
+
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<SkincareDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+var app = builder.Build();
+
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
-
-            // Add services to the container.
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-
-            var app = builder.Build();
-
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-
-            app.MapControllers();
-
-            app.Run();
-        }
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+// Use CORS
+app.UseCors("AllowSpecificOrigin");
+
+// Enable HTTPS redirection
+app.UseHttpsRedirection();
+
+
+
+
+// Enable authentication and authorization
+app.UseAuthentication();
+app.UseAuthorization();
+
+
+// Map controllers to routes
+app.MapControllers();
+
+// Run the application
+app.Run();
