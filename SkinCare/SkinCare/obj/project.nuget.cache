@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FsHoWD0Y3x0=",
+  "dgSpecHash": "jQO32vvUdt8=",
   "success": true,
-  "projectFilePath": "D:\\code\\SWD1\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_API.csproj",
+  "projectFilePath": "D:\\code\\SWD\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
