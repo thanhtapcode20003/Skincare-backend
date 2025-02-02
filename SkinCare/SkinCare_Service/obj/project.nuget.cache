@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f3RLevvpnTE=",
+  "dgSpecHash": "TgQf8GcTCDA=",
   "success": true,
-  "projectFilePath": "D:\\code\\SWD\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
+  "projectFilePath": "D:\\code\\swd1\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
