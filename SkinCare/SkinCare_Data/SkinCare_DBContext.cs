@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SkinCare_Data
 {
-    public class SkincareDbContext : DbContext
+    public class SkinCare_DBContext : DbContext
     {
-        public SkincareDbContext(DbContextOptions<SkincareDbContext> options) : base(options) { }
+        public SkinCare_DBContext(DbContextOptions<SkinCare_DBContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -27,6 +27,8 @@ namespace SkinCare_Data
         public DbSet<Promotion> Promotions { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Report> Reports { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -52,6 +54,11 @@ namespace SkinCare_Data
                 .HasMany<User>()
                 .WithOne(u => u.Role)
                 .HasForeignKey(u => u.RoleId);
+            modelBuilder.Entity<Role>().HasData(
+                 new Role { RoleId = 1, RoleName = "Customer" },
+                 new Role { RoleId = 2, RoleName = "Staff" },
+                 new Role { RoleId = 3, RoleName = "Manager" }
+              );
 
             // SkinType relationships
             modelBuilder.Entity<SkinType>()

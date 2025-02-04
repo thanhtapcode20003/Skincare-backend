@@ -1,11 +1,37 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using SkinCare_Data.DTO.Login;
+using System.Threading.Tasks;
+using SkinCare_Data.DTO.Register;
 
-namespace SkinCare_API.Controllers
+[Route("api/auth")]
+[ApiController]
+public class AuthController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    private readonly AuthService _authService;
+
+    public AuthController(AuthService authService)
     {
+        _authService = authService;
+    }
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+    {
+        var result = await _authService.RegisterUser(request);
+        if (!result)
+        {
+            return BadRequest(new { message = "Email đã tồn tại hoặc Role không hợp lệ!" });
+        }
+
+        return Ok(new { message = "Đăng ký thành công!" });
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    {
+        var (token, refreshToken) = await _authService.LoginAsync(request.Email, request.Password);
+
+        if (token == null) return Unauthorized("Invalid username or password.");
+
+        return Ok(new { Token = token, RefreshToken = refreshToken });
     }
 }

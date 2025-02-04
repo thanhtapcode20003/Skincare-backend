@@ -14,11 +14,11 @@ namespace SkinCare_Data.Data
         [Key]
         public string UserId { get; set; }
 
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
         [ForeignKey(nameof(RoleId))]
         public Role Role { get; set; }
 
-        public string SkinTypeId { get; set; }
+        public string? SkinTypeId { get; set; }
         [ForeignKey(nameof(SkinTypeId))]
         public SkinType SkinType { get; set; }
 
@@ -33,7 +33,7 @@ namespace SkinCare_Data.Data
 
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public int Point { get; set; }
+        public int? Point { get; set; }
         public DateTime CreateAt { get; set; }
 
         public ICollection<Order> Orders { get; set; }
