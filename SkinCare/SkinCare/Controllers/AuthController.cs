@@ -19,10 +19,10 @@ public class AuthController : ControllerBase
         var result = await _authService.RegisterUser(request);
         if (!result)
         {
-            return BadRequest(new { message = "Email đã tồn tại hoặc Role không hợp lệ!" });
+            return BadRequest(new { message = "Email is exist!" });
         }
 
-        return Ok(new { message = "Đăng ký thành công!" });
+        return Ok(new { message = "Success!" });
     }
 
     [HttpPost("login")]
