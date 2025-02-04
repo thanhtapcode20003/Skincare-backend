@@ -10,6 +10,8 @@ using SkinCare_Data;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO;
 using SkinCare_Data.DTO.Register;
+using BCrypt.Net;
+
 
 public class AuthService
 {
@@ -22,24 +24,26 @@ public class AuthService
         _configuration = configuration;
     }
 
+    //login
     public async Task<(string Token, string RefreshToken)> LoginAsync(string email, string password)
     {
-        // Giả sử bạn có một User table để kiểm tra thông tin đăng nhập
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
-        if (user == null || user.Password != HashPassword(password)) return (null, null);
+        if (user == null || !VerifyPassword(password, user.Password))
+        {
+            return (null, null);
+        }
 
-        // Tạo Access Token
+        //  Access Token
         string token = GenerateJwtToken(user);
 
-        // Tạo Refresh Token
+        //  Refresh Token
         string refreshToken = GenerateRefreshToken();
 
-        // Lưu Refresh Token vào database
         var newRefreshToken = new RefreshToken
         {
             Token = refreshToken,
-            UserId = user.UserId.ToString(), // Chuyển User ID về string nếu cần
-            ExpiryDate = DateTime.UtcNow.AddDays(7) // Refresh token có hiệu lực trong 7 ngày
+            UserId = user.UserId.ToString(), 
+            ExpiryDate = DateTime.UtcNow.AddDays(7) 
         };
 
         _context.RefreshTokens.Add(newRefreshToken);
@@ -54,16 +58,19 @@ public class AuthService
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
-        {
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim("UserId", user.UserId.ToString())
-        };
+   {
+        new Claim("Email", user.Email), 
+        new Claim("UserName", user.UserName),
+        new Claim("PhoneNumber", user.PhoneNumber),
+        new Claim("Address", user.Address),
+        new Claim("CreateAt", user.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"))
+    };
 
         var token = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(1), // Token hết hạn sau 1 giờ
+            expires: DateTime.UtcNow.AddHours(1), 
             signingCredentials: creds
         );
 
@@ -72,31 +79,25 @@ public class AuthService
 
     private string GenerateRefreshToken()
     {
-        var randomNumber = new byte[32];
-        using (var rng = RandomNumberGenerator.Create())
-        {
-            rng.GetBytes(randomNumber);
-        }
-        return Convert.ToBase64String(randomNumber);
+        var refreshToken = Guid.NewGuid().ToString(); 
+        return refreshToken;
     }
 
     public async Task<bool> RegisterUser(RegisterRequest request)
     {
-        // Kiểm tra email đã tồn tại chưa
         var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
         if (existingUser != null)
         {
-            return false; // Email đã tồn tại
+            return false; 
         }
 
-        // Lấy RoleId từ RoleName
         var role = await _context.Roles.FirstOrDefaultAsync(r => r.RoleName == request.RoleName);
         if (role == null)
         {
-            return false; // Role không hợp lệ
+            return false; 
         }
 
-        // Đếm số lượng user với cùng RoleId
+       
         int userCount = await _context.Users.CountAsync(u => u.RoleId == role.RoleId);
 
         string userIdPrefix = role.RoleId switch
@@ -107,7 +108,7 @@ public class AuthService
            
         };
 
-        string newUserId = $"{userIdPrefix}{(userCount + 1):D3}"; // Ví dụ: C001, S002, M003
+        string newUserId = $"{userIdPrefix}{(userCount + 1):D3}"; 
 
 
         // Tạo User mới
@@ -116,10 +117,10 @@ public class AuthService
             UserId = newUserId,
             UserName = request.UserName,
             Email = request.Email,
-            Password = HashPassword(request.Password), // Hash mật khẩu
+            Password = HashPassword(request.Password),
             PhoneNumber = request.PhoneNumber,
             Address = request.Address,
-            RoleId = role.RoleId, // Gán RoleId từ RoleName
+            RoleId = role.RoleId, 
             SkinTypeId = null,
             CreateAt = DateTime.UtcNow
         };
@@ -132,10 +133,11 @@ public class AuthService
 
     private string HashPassword(string password)
     {
-        using (SHA256 sha256 = SHA256.Create())
-        {
-            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return Convert.ToBase64String(bytes);
-        }
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
+
+    private bool VerifyPassword(string password, string hashedPassword)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
     }
 }
