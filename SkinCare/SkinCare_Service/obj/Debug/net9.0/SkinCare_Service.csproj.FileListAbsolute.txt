@@ -11,3 +11,6 @@ D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\obj\Debug\net9.0\SkinCare
 D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\obj\Debug\net9.0\refint\SkinCare_Service.dll
 D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\obj\Debug\net9.0\SkinCare_Service.pdb
 D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\obj\Debug\net9.0\ref\SkinCare_Service.dll
+D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\bin\Debug\net9.0\SkinCare_Data.dll
+D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\bin\Debug\net9.0\SkinCare_Data.pdb
+D:\code\SWD\Skincare-backend\SkinCare\SkinCare_Service\obj\Debug\net9.0\SkinCare.A76F422C.Up2Date

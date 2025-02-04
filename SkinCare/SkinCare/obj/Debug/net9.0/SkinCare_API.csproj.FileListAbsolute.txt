@@ -270,3 +270,5 @@ D:\code\SWD\Skincare-backend\SkinCare\SkinCare\obj\Debug\net9.0\refint\SkinCare_
 D:\code\SWD\Skincare-backend\SkinCare\SkinCare\obj\Debug\net9.0\SkinCare_API.pdb
 D:\code\SWD\Skincare-backend\SkinCare\SkinCare\obj\Debug\net9.0\SkinCare_API.genruntimeconfig.cache
 D:\code\SWD\Skincare-backend\SkinCare\SkinCare\obj\Debug\net9.0\ref\SkinCare_API.dll
+D:\code\SWD\Skincare-backend\SkinCare\SkinCare\bin\Debug\net9.0\SkinCare_Service.dll
+D:\code\SWD\Skincare-backend\SkinCare\SkinCare\bin\Debug\net9.0\SkinCare_Service.pdb

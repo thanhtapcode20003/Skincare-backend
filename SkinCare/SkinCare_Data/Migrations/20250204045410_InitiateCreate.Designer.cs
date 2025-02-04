@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SkinCare_Data;
 
@@ -10,10 +11,12 @@ using SkinCare_Data;
 
 namespace SkinCare_Data.Migrations
 {
-    [DbContext(typeof(SkincareDbContext))]
-    partial class SkincareDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(SkinCare_DBContext))]
+    [Migration("20250204045410_InitiateCreate")]
+    partial class InitiateCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,6 +305,30 @@ namespace SkinCare_Data.Migrations
                     b.ToTable("RatingsFeedbacks");
                 });
 
+            modelBuilder.Entity("SkinCare_Data.Data.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("SkinCare_Data.Data.Report", b =>
                 {
                     b.Property<string>("ReportId")
@@ -329,8 +356,11 @@ namespace SkinCare_Data.Migrations
 
             modelBuilder.Entity("SkinCare_Data.Data.Role", b =>
                 {
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
 
                     b.Property<string>("RoleName")
                         .IsRequired()
@@ -339,6 +369,23 @@ namespace SkinCare_Data.Migrations
                     b.HasKey("RoleId");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = 1,
+                            RoleName = "Customer"
+                        },
+                        new
+                        {
+                            RoleId = 2,
+                            RoleName = "Staff"
+                        },
+                        new
+                        {
+                            RoleId = 3,
+                            RoleName = "Manager"
+                        });
                 });
 
             modelBuilder.Entity("SkinCare_Data.Data.SkinCareRoutine", b =>
@@ -407,15 +454,13 @@ namespace SkinCare_Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Point")
+                    b.Property<int?>("Point")
                         .HasColumnType("int");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.Property<string>("SkinTypeId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("UserName")
@@ -607,9 +652,7 @@ namespace SkinCare_Data.Migrations
 
                     b.HasOne("SkinCare_Data.Data.SkinType", "SkinType")
                         .WithMany()
-                        .HasForeignKey("SkinTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SkinTypeId");
 
                     b.Navigation("Role");
 
