@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qvXiH2fFTDo=",
+  "dgSpecHash": "ka4cRNAPqMo=",
   "success": true,
-  "projectFilePath": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_API.csproj",
+  "projectFilePath": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare\\SkinCare_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

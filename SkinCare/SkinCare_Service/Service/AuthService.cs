@@ -27,23 +27,25 @@ public class AuthService
     //login
     public async Task<(string Token, string RefreshToken)> LoginAsync(string email, string password)
     {
-        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        var user = await _context.Users
+            .Include(u => u.Role) // Nạp Role để tránh null
+            .FirstOrDefaultAsync(u => u.Email == email);
         if (user == null || !VerifyPassword(password, user.Password))
         {
             return (null, null);
         }
 
-        //  Access Token
+        // Access Token
         string token = GenerateJwtToken(user);
 
-        //  Refresh Token
+        // Refresh Token
         string refreshToken = GenerateRefreshToken();
 
         var newRefreshToken = new RefreshToken
         {
             Token = refreshToken,
-            UserId = user.UserId.ToString(), 
-            ExpiryDate = DateTime.UtcNow.AddDays(7) 
+            UserId = user.UserId.ToString(),
+            ExpiryDate = DateTime.UtcNow.AddDays(7)
         };
 
         _context.RefreshTokens.Add(newRefreshToken);
@@ -58,11 +60,14 @@ public class AuthService
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
-   {
-        new Claim("Email", user.Email), 
+        {
         new Claim("UserName", user.UserName),
-        new Claim("PhoneNumber", user.PhoneNumber),
-        new Claim("Address", user.Address),
+        new Claim("Email", user.Email),
+        // Kiểm tra Role và RoleName trước khi thêm claim
+        new Claim("Role", user.Role?.RoleName ?? "Unknown"), // Sử dụng "Unknown" hoặc giá trị mặc định
+        new Claim("UserId", user.UserId),
+        new Claim("PhoneNumber", user.PhoneNumber ?? ""),
+        new Claim("Address", user.Address ?? ""),
         new Claim("CreateAt", user.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"))
     };
 
@@ -70,7 +75,7 @@ public class AuthService
             issuer: _configuration["Jwt:Issuer"],
             audience: _configuration["Jwt:Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(1), 
+            expires: DateTime.UtcNow.AddHours(1),
             signingCredentials: creds
         );
 

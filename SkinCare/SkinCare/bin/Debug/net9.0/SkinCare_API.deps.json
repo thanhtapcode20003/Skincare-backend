@@ -2132,7 +2132,7 @@
         },
         "runtime": {
           "SkinCare_Data.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -2148,7 +2148,7 @@
         },
         "runtime": {
           "SkinCare_Service.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

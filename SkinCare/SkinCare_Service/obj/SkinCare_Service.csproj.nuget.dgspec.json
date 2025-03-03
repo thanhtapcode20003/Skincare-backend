@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj": {}
+    "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj": {}
   },
   "projects": {
-    "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {
+    "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
+        "projectUniqueName": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
         "projectName": "SkinCare_Data",
-        "projectPath": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
+        "projectPath": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Data\\obj\\",
+        "outputPath": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -116,18 +116,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj": {
+    "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
+        "projectUniqueName": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
         "projectName": "SkinCare_Service",
-        "projectPath": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
+        "projectPath": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Service\\SkinCare_Service.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Service\\obj\\",
+        "outputPath": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -149,8 +149,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {
-                "projectPath": "D:\\code\\swd2\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj"
+              "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {
+                "projectPath": "D:\\code\\swd3\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj"
               }
             }
           }
@@ -165,7 +165,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -208,7 +208,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
