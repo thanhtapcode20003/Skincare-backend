@@ -107,9 +107,9 @@ namespace SkinCare_Data.Migrations
                 columns: table => new
                 {
                     ProductId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    SkinTypeId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RoutineId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SkinTypeId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CategoryId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    RoutineId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<float>(type: "real", nullable: false),
@@ -126,13 +126,13 @@ namespace SkinCare_Data.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Products_SkinCareRoutines_RoutineId",
                         column: x => x.RoutineId,
                         principalTable: "SkinCareRoutines",
                         principalColumn: "RoutineId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Products_SkinTypes_SkinTypeId",
                         column: x => x.SkinTypeId,

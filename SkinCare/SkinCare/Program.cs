@@ -4,9 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using SkinCare_Data;
 using Microsoft.OpenApi.Models;
-
-
-
+using System.Security.Claims;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,38 +25,45 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod()
     );
 });
-builder
-    .Services.AddAuthentication(options =>
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme =
+        options.DefaultChallengeScheme =
+        options.DefaultForbidScheme =
+        options.DefaultScheme =
+        options.DefaultSignInScheme =
+        options.DefaultSignOutScheme =
+            JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        options.DefaultAuthenticateScheme =
-            options.DefaultChallengeScheme =
-            options.DefaultForbidScheme =
-            options.DefaultScheme =
-            options.DefaultSignInScheme =
-            options.DefaultSignOutScheme =
-                JwtBearerDefaults.AuthenticationScheme;
-    })
-    .AddJwtBearer(options =>
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SigningKey"])),
+        ValidateLifetime = true,
+        RoleClaimType = ClaimTypes.Role
+    };
+    options.IncludeErrorDetails = true;
+});
+
+// Add services to the container with JSON configuration
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
     {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidateAudience = true,
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                System.Text.Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SigningKey"])
-            ),
-        };
-        options.IncludeErrorDetails = true;
+        options.JsonSerializerOptions.AllowTrailingCommas = true;
+        options.JsonSerializerOptions.ReadCommentHandling = JsonCommentHandling.Skip;
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull; // Xử lý null values
     });
-// Add services to the container.
-builder.Services.AddControllers();
+
 // Configure Swagger/OpenAPI.
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
@@ -91,11 +97,11 @@ builder.Services.AddSwaggerGen(option =>
     );
 });
 
-//addservice
+// Add services
 builder.Services.AddAuthorization();
-builder.Services.AddControllers();
-builder.Services.AddScoped<AuthService>(); 
+builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<ProductService>();
 
 var app = builder.Build();
 
@@ -106,21 +112,15 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-
 // Use CORS
 app.UseCors("AllowSpecificOrigin");
 
 // Enable HTTPS redirection
 app.UseHttpsRedirection();
 
-
-
-
 // Enable authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 // Map controllers to routes
 app.MapControllers();
