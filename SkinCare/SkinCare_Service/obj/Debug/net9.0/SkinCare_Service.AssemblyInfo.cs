@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SkinCare_Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9957f29004c9ed7c355dceba9ed363a9a804be7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a6c7ed5f11f4d8a1bc5b0ff589ceadeb70cca5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("SkinCare_Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SkinCare_Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -56,15 +56,14 @@ public class AuthService
 
     private string GenerateJwtToken(User user)
     {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SigningKey"]));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fj8ui4h9874j5439utyh498hn9gh49g8y440983hng9843h983j8933902nmxoia9a10m3091mamaocp92k3mfpfdk239o2"));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var claims = new[]
         {
         new Claim("UserName", user.UserName),
         new Claim("Email", user.Email),
-        // Kiểm tra Role và RoleName trước khi thêm claim
-        new Claim("Role", user.Role?.RoleName ?? "Unknown"), // Sử dụng "Unknown" hoặc giá trị mặc định
+        new Claim(ClaimTypes.Role, user.Role?.RoleName ?? "Unknown"),
         new Claim("UserId", user.UserId),
         new Claim("PhoneNumber", user.PhoneNumber ?? ""),
         new Claim("Address", user.Address ?? ""),

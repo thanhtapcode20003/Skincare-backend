@@ -126,7 +126,6 @@ namespace SkinCare_Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CategoryId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreateAt")
@@ -155,11 +154,9 @@ namespace SkinCare_Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoutineId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SkinTypeId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("ProductId");
@@ -527,20 +524,17 @@ namespace SkinCare_Data.Migrations
                     b.HasOne("SkinCare_Data.Data.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SkinCare_Data.Data.SkinCareRoutine", "Routine")
                         .WithMany()
                         .HasForeignKey("RoutineId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SkinCare_Data.Data.SkinType", "SkinType")
                         .WithMany()
                         .HasForeignKey("SkinTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Category");
 
