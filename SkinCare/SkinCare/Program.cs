@@ -94,7 +94,8 @@ builder.Services.AddSwaggerGen(option =>
 //addservice
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
-builder.Services.AddScoped<AuthService>(); // Đăng ký service
+builder.Services.AddScoped<AuthService>(); 
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 
