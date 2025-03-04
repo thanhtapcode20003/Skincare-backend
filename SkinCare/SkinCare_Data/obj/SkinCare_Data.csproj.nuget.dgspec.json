@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\code\\swd4\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {}
+    "D:\\code\\swd6\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {}
   },
   "projects": {
-    "D:\\code\\swd4\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {
+    "D:\\code\\swd6\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\code\\swd4\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
+        "projectUniqueName": "D:\\code\\swd6\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
         "projectName": "SkinCare_Data",
-        "projectPath": "D:\\code\\swd4\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
+        "projectPath": "D:\\code\\swd6\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_Data.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\code\\swd4\\Skincare-backend\\SkinCare\\SkinCare_Data\\obj\\",
+        "outputPath": "D:\\code\\swd6\\Skincare-backend\\SkinCare\\SkinCare_Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
