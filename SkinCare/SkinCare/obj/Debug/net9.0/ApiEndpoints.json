@@ -53,32 +53,6 @@
   },
   {
     "ContainingType": "ProductController",
-    "Method": "CreateProduct",
-    "RelativePath": "api/products",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "createProductDto",
-        "Type": "SkinCare_Data.DTO.Product.CreateProductDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "SkinCare_Data.Data.Product",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "ProductController",
     "Method": "GetProduct",
     "RelativePath": "api/products/{id}",
     "HttpMethod": "GET",
@@ -105,8 +79,50 @@
   },
   {
     "ContainingType": "ProductController",
+    "Method": "CreateProduct",
+    "RelativePath": "api/products/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createProductDto",
+        "Type": "SkinCare_Data.DTO.Product.CreateProductDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SkinCare_Data.Data.Product",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ProductController",
+    "Method": "DeleteProduct",
+    "RelativePath": "api/products/delete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProductController",
     "Method": "UpdateProduct",
-    "RelativePath": "api/products/{id}",
+    "RelativePath": "api/products/edit/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -125,9 +141,81 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "ProductController",
-    "Method": "DeleteProduct",
-    "RelativePath": "api/products/{id}",
+    "ContainingType": "SkinCareRoutineController",
+    "Method": "GetSkinCareRoutines",
+    "RelativePath": "api/skin-care-routines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SkinCare_Data.Data.SkinCareRoutine, SkinCare_Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SkinCareRoutineController",
+    "Method": "GetSkinCareRoutine",
+    "RelativePath": "api/skin-care-routines/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SkinCare_Data.Data.SkinCareRoutine",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SkinCareRoutineController",
+    "Method": "CreateSkinCareRoutine",
+    "RelativePath": "api/skin-care-routines/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createRoutineDto",
+        "Type": "SkinCare_Data.DTO.Routine.CreateSkinCareRoutineDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SkinCare_Data.Data.SkinCareRoutine",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SkinCareRoutineController",
+    "Method": "DeleteSkinCareRoutine",
+    "RelativePath": "api/skin-care-routines/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -135,6 +223,27 @@
       {
         "Name": "id",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SkinCareRoutineController",
+    "Method": "UpdateSkinCareRoutine",
+    "RelativePath": "api/skin-care-routines/edit/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateRoutineDto",
+        "Type": "SkinCare_Data.DTO.Routine.UpdateSkinCareRoutineDto",
         "IsRequired": true
       }
     ],
@@ -215,7 +324,7 @@
   {
     "ContainingType": "UsersController",
     "Method": "DeleteUser",
-    "RelativePath": "api/users/{id}/delete",
+    "RelativePath": "api/users/delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -231,7 +340,7 @@
   {
     "ContainingType": "UsersController",
     "Method": "UpdateUser",
-    "RelativePath": "api/users/{id}/edit",
+    "RelativePath": "api/users/edit/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,

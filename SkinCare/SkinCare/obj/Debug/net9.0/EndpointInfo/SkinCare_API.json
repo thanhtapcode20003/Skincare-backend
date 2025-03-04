@@ -103,7 +103,48 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/products/{id}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/products/create": {
       "post": {
         "tags": [
           "Product"
@@ -151,44 +192,7 @@
         }
       }
     },
-    "/api/products/{id}": {
-      "get": {
-        "tags": [
-          "Product"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Product"
-                }
-              }
-            }
-          }
-        }
-      },
+    "/api/products/edit/{id}": {
       "put": {
         "tags": [
           "Product"
@@ -227,10 +231,200 @@
             "description": "OK"
           }
         }
-      },
+      }
+    },
+    "/api/products/delete/{id}": {
       "delete": {
         "tags": [
           "Product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/skin-care-routines": {
+      "get": {
+        "tags": [
+          "SkinCareRoutine"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkinCareRoutine"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkinCareRoutine"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkinCareRoutine"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skin-care-routines/{id}": {
+      "get": {
+        "tags": [
+          "SkinCareRoutine"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkinCareRoutine"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkinCareRoutine"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkinCareRoutine"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skin-care-routines/create": {
+      "post": {
+        "tags": [
+          "SkinCareRoutine"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkinCareRoutineDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkinCareRoutineDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSkinCareRoutineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkinCareRoutine"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkinCareRoutine"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SkinCareRoutine"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/skin-care-routines/edit/{id}": {
+      "put": {
+        "tags": [
+          "SkinCareRoutine"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSkinCareRoutineDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSkinCareRoutineDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSkinCareRoutineDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/skin-care-routines/delete/{id}": {
+      "delete": {
+        "tags": [
+          "SkinCareRoutine"
         ],
         "parameters": [
           {
@@ -372,7 +566,7 @@
         }
       }
     },
-    "/api/users/{id}/edit": {
+    "/api/users/edit/{id}": {
       "put": {
         "tags": [
           "Users"
@@ -413,7 +607,7 @@
         }
       }
     },
-    "/api/users/{id}/delete": {
+    "/api/users/delete/{id}": {
       "delete": {
         "tags": [
           "Users"
@@ -495,6 +689,24 @@
           "image": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateSkinCareRoutineDto": {
+        "required": [
+          "description",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": {
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -861,6 +1073,20 @@
             "nullable": true
           },
           "image": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateSkinCareRoutineDto": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
             "type": "string",
             "nullable": true
           }
