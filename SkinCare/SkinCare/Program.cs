@@ -103,6 +103,7 @@ builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<SkinCareRoutineService>();
+builder.Services.AddScoped<SkinTypeService>();
 
 var app = builder.Build();
 
