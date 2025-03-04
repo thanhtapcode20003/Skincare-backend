@@ -61,7 +61,7 @@ public class ProductController : ControllerBase
     }
 
     // POST: api/products (Chỉ Staff mới có thể truy cập, sử dụng CreateProductDto)
-    [HttpPost]
+    [HttpPost("create")]
     [Authorize(Roles = "Staff")]
     public async Task<ActionResult<Product>> CreateProduct(CreateProductDto createProductDto)
     {
@@ -89,7 +89,7 @@ public class ProductController : ControllerBase
     }
 
     // PUT: api/products/{id} (Chỉ Staff mới có thể truy cập, sử dụng UpdateProductDto)
-    [HttpPut("{id}")]
+    [HttpPut("edit/{id}")]
     [Authorize(Roles = "Staff")]
     public async Task<IActionResult> UpdateProduct(string id, UpdateProductDto updateProductDto)
     {
@@ -113,7 +113,7 @@ public class ProductController : ControllerBase
     }
 
     // DELETE: api/products/{id} (Chỉ Staff mới có thể truy cập)
-    [HttpDelete("{id}")]
+    [HttpDelete("delete/{id}")]
     [Authorize(Roles = "Staff")]
     public async Task<IActionResult> DeleteProduct(string id)
     {

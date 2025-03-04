@@ -95,7 +95,7 @@ public class UsersController : ControllerBase
     }
 
     
-    [HttpPut("{id}/edit")]
+    [HttpPut("edit/{id}")]
     public async Task<IActionResult> UpdateUser(string id, UpdateUserRequest updateUserRequest)
     {
         try
@@ -116,7 +116,7 @@ public class UsersController : ControllerBase
     }
 
    
-    [HttpDelete("{id}/delete")]
+    [HttpDelete("delete/{id}")]
     [Authorize(Roles = "Manager")]
     public async Task<IActionResult> DeleteUser(string id)
     {
