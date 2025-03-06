@@ -105,8 +105,10 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<ProductService>();
+builder.Services.AddScoped<IUserService, UserService>(); 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProductService, ProductService>(); 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISkinCareRoutineService, SkinCareRoutineService>();
 builder.Services.AddScoped<ISkinCareRoutineRepository, SkinCareRoutineRepository>();
 builder.Services.AddScoped<ISkinTypeService, SkinTypeService>(); 

@@ -22,5 +22,9 @@ namespace SkinCare_Data.Data
         public Product Product { get; set; }
 
         public float Price { get; set; }
+
+        // Thêm thuộc tính Quantity
+        [Required]
+        public int Quantity { get; set; }
     }
 }

@@ -2,22 +2,22 @@
 using Microsoft.AspNetCore.Mvc;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO.User;
+using SkinCare_Service.IService; // Thêm namespace để sử dụng IUserService
 using System.Threading.Tasks;
 
 [Route("api/users")]
 [ApiController]
 public class UsersController : ControllerBase
 {
-    private readonly UserService _userService;
+    private readonly IUserService _userService;
     private readonly ILogger<UsersController> _logger;
 
-    public UsersController(UserService userService, ILogger<UsersController> logger)
+    public UsersController(IUserService userService, ILogger<UsersController> logger)
     {
         _userService = userService;
         _logger = logger;
     }
 
- 
     [HttpGet]
     [Authorize(Roles = "Manager")]
     public async Task<ActionResult<List<User>>> GetUsers()
@@ -27,7 +27,6 @@ public class UsersController : ControllerBase
             _logger.LogInformation("Fetching all users");
 
             var users = await _userService.GetAllUsersAsync();
-            // Loại bỏ password khỏi response để bảo mật
             foreach (var user in users)
             {
                 user.Password = null;
@@ -41,7 +40,6 @@ public class UsersController : ControllerBase
         }
     }
 
-   
     [HttpGet("{id}")]
     [Authorize(Roles = "Manager")]
     public async Task<ActionResult<User>> GetUser(string id)
@@ -57,7 +55,6 @@ public class UsersController : ControllerBase
                 return NotFound(new { message = "User not found" });
             }
 
-            // Loại bỏ password khỏi response để bảo mật
             user.Password = null;
             return Ok(user);
         }
@@ -68,7 +65,6 @@ public class UsersController : ControllerBase
         }
     }
 
-    
     [HttpPost]
     public async Task<ActionResult<User>> CreateUser(User user)
     {
@@ -76,14 +72,12 @@ public class UsersController : ControllerBase
         {
             _logger.LogInformation("Creating new user with email: {Email}", user.Email);
 
-            // Không cần gửi password qua body, chỉ nhận từ client nếu cần đăng ký
             if (string.IsNullOrEmpty(user.Password))
             {
                 return BadRequest(new { message = "Password is required" });
             }
 
             var createdUser = await _userService.CreateUserAsync(user);
-            // Loại bỏ password khỏi response để bảo mật
             createdUser.Password = null;
             return Ok(createdUser);
         }
@@ -94,7 +88,6 @@ public class UsersController : ControllerBase
         }
     }
 
-    
     [HttpPut("edit/{id}")]
     public async Task<IActionResult> UpdateUser(string id, UpdateUserRequest updateUserRequest)
     {
@@ -102,9 +95,7 @@ public class UsersController : ControllerBase
         {
             _logger.LogInformation("Updating user with ID: {UserId}", id);
 
-            // Không kiểm tra UserId từ DTO, vì UserId không được gửi trong body
             var updatedUser = await _userService.UpdateUserAsync(id, updateUserRequest);
-            // Loại bỏ password khỏi response để bảo mật
             updatedUser.Password = null;
             return Ok(updatedUser);
         }
@@ -115,7 +106,6 @@ public class UsersController : ControllerBase
         }
     }
 
-   
     [HttpDelete("delete/{id}")]
     [Authorize(Roles = "Manager")]
     public async Task<IActionResult> DeleteUser(string id)
