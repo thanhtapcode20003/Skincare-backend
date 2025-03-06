@@ -3,145 +3,143 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using SkinCare_Data;
 using SkinCare_Data.Data;
-using SkinCare_Data.DTO;
+using SkinCare_Data.DTO.Login;
 using SkinCare_Data.DTO.Register;
+using SkinCare_Data.IRepositories;
+using SkinCare_Service.IService;
 using BCrypt.Net;
+using System.Threading.Tasks;
 
-
-public class AuthService
+namespace SkinCare_Service
 {
-    private readonly SkinCare_DBContext _context;
-    private readonly IConfiguration _configuration;
-
-    public AuthService(SkinCare_DBContext context, IConfiguration configuration)
+    public class AuthService : IAuthService
     {
-        _context = context;
-        _configuration = configuration;
-    }
+        private readonly IAuthRepository _repository;
+        private readonly IConfiguration _configuration;
 
-    //login
-    public async Task<(string Token, string RefreshToken)> LoginAsync(string email, string password)
-    {
-        var user = await _context.Users
-            .Include(u => u.Role) // Nạp Role để tránh null
-            .FirstOrDefaultAsync(u => u.Email == email);
-        if (user == null || !VerifyPassword(password, user.Password))
+        public AuthService(IAuthRepository repository, IConfiguration configuration)
         {
-            return (null, null);
+            _repository = repository;
+            _configuration = configuration;
         }
 
-        // Access Token
-        string token = GenerateJwtToken(user);
-
-        // Refresh Token
-        string refreshToken = GenerateRefreshToken();
-
-        var newRefreshToken = new RefreshToken
+        // Login
+        public async Task<(string Token, string RefreshToken)> LoginAsync(string email, string password)
         {
-            Token = refreshToken,
-            UserId = user.UserId.ToString(),
-            ExpiryDate = DateTime.UtcNow.AddDays(7)
-        };
+            var user = await _repository.GetUserByEmailAsync(email);
+            if (user == null || !VerifyPassword(password, user.Password))
+            {
+                return (null, null);
+            }
 
-        _context.RefreshTokens.Add(newRefreshToken);
-        await _context.SaveChangesAsync();
+            // Access Token
+            string token = GenerateJwtToken(user);
 
-        return (token, refreshToken);
-    }
+            // Refresh Token
+            string refreshToken = GenerateRefreshToken();
 
-    private string GenerateJwtToken(User user)
-    {
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fj8ui4h9874j5439utyh498hn9gh49g8y440983hng9843h983j8933902nmxoia9a10m3091mamaocp92k3mfpfdk239o2"));
-        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var newRefreshToken = new RefreshToken
+            {
+                Token = refreshToken,
+                UserId = user.UserId.ToString(),
+                ExpiryDate = DateTime.UtcNow.AddDays(7)
+            };
 
-        var claims = new[]
-        {
-        new Claim("UserName", user.UserName),
-        new Claim("Email", user.Email),
-        new Claim(ClaimTypes.Role, user.Role?.RoleName ?? "Unknown"),
-        new Claim("UserId", user.UserId),
-        new Claim("PhoneNumber", user.PhoneNumber ?? ""),
-        new Claim("Address", user.Address ?? ""),
-        new Claim("CreateAt", user.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"))
-    };
+            await _repository.AddRefreshTokenAsync(newRefreshToken);
+            await _repository.SaveChangesAsync();
 
-        var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
-            claims: claims,
-            expires: DateTime.UtcNow.AddHours(1),
-            signingCredentials: creds
-        );
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
-    }
-
-    private string GenerateRefreshToken()
-    {
-        var refreshToken = Guid.NewGuid().ToString(); 
-        return refreshToken;
-    }
-
-    public async Task<bool> RegisterUser(RegisterRequest request)
-    {
-        var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
-        if (existingUser != null)
-        {
-            return false; 
+            return (token, refreshToken);
         }
 
-        var role = await _context.Roles.FirstOrDefaultAsync(r => r.RoleName == request.RoleName);
-        if (role == null)
+        private string GenerateJwtToken(User user)
         {
-            return false; 
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("fj8ui4h9874j5439utyh498hn9gh49g8y440983hng9843h983j8933902nmxoia9a10m3091mamaocp92k3mfpfdk239o2"));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim("UserName", user.UserName),
+                new Claim("Email", user.Email),
+                new Claim(ClaimTypes.Role, user.Role?.RoleName ?? "Unknown"),
+                new Claim("UserId", user.UserId),
+                new Claim("PhoneNumber", user.PhoneNumber ?? ""),
+                new Claim("Address", user.Address ?? ""),
+                new Claim("CreateAt", user.CreateAt.ToString("yyyy-MM-dd HH:mm:ss"))
+            };
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: creds
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-       
-        int userCount = await _context.Users.CountAsync(u => u.RoleId == role.RoleId);
-
-        string userIdPrefix = role.RoleId switch
+        private string GenerateRefreshToken()
         {
-            1 => "C",  // Customer
-            2 => "S",  // Staff
-            3 => "M",  // Manager
-           
-        };
+            var refreshToken = Guid.NewGuid().ToString();
+            return refreshToken;
+        }
 
-        string newUserId = $"{userIdPrefix}{(userCount + 1):D3}"; 
-
-
-        // Tạo User mới
-        var newUser = new User
+        public async Task<bool> RegisterUser(RegisterRequest request)
         {
-            UserId = newUserId,
-            UserName = request.UserName,
-            Email = request.Email,
-            Password = HashPassword(request.Password),
-            PhoneNumber = request.PhoneNumber,
-            Address = request.Address,
-            RoleId = role.RoleId, 
-            SkinTypeId = null,
-            CreateAt = DateTime.UtcNow
-        };
+            if (await _repository.UserExistsAsync(request.Email))
+            {
+                return false; 
+            }
 
-        _context.Users.Add(newUser);
-        await _context.SaveChangesAsync();
+            var role = await _repository.GetRoleByNameAsync(request.RoleName);
+            if (role == null)
+            {
+                return false; 
+            }
 
-        return true;
-    }
+            int userCount = await _repository.GetUserCountByRoleAsync(role.RoleId);
 
-    private string HashPassword(string password)
-    {
-        return BCrypt.Net.BCrypt.HashPassword(password);
-    }
+            string userIdPrefix = role.RoleId switch
+            {
+                1 => "C",  // Customer
+                2 => "S",  // Staff
+                3 => "M",  // Manager
+                _ => throw new Exception("Invalid RoleId")
+            };
 
-    private bool VerifyPassword(string password, string hashedPassword)
-    {
-        return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+            string newUserId = $"{userIdPrefix}{(userCount + 1):D3}"; 
+
+            
+            var newUser = new User
+            {
+                UserId = newUserId,
+                UserName = request.UserName,
+                Email = request.Email,
+                Password = HashPassword(request.Password),
+                PhoneNumber = request.PhoneNumber,
+                Address = request.Address,
+                RoleId = role.RoleId,
+                SkinTypeId = null,
+                CreateAt = DateTime.UtcNow
+            };
+
+            await _repository.AddUserAsync(newUser);
+            await _repository.SaveChangesAsync();
+
+            return true;
+        }
+
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
+
+        private bool VerifyPassword(string password, string hashedPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
+        }
     }
 }

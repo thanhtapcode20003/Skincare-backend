@@ -3,16 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO;
 using SkinCare_Data.DTO.Routine;
+using SkinCare_Service.IService; 
 using System.Threading.Tasks;
 
 [Route("api/skin-care-routines")]
 [ApiController]
 public class SkinCareRoutineController : ControllerBase
 {
-    private readonly SkinCareRoutineService _routineService;
+    private readonly ISkinCareRoutineService _routineService; 
     private readonly ILogger<SkinCareRoutineController> _logger;
 
-    public SkinCareRoutineController(SkinCareRoutineService routineService, ILogger<SkinCareRoutineController> logger)
+    public SkinCareRoutineController(ISkinCareRoutineService routineService, ILogger<SkinCareRoutineController> logger)
     {
         _routineService = routineService;
         _logger = logger;
@@ -93,7 +94,7 @@ public class SkinCareRoutineController : ControllerBase
         {
             _logger.LogInformation("Updating SkinCareRoutine with ID: {RoutineId}", id);
 
-            // Không kiểm tra RoutineId trong DTO nữa, vì RoutineId không được phép cập nhật
+            
             var updatedRoutine = await _routineService.UpdateSkinCareRoutineAsync(id, updateRoutineDto);
             return Ok(updatedRoutine);
         }

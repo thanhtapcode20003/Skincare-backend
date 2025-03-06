@@ -6,6 +6,10 @@ using SkinCare_Data;
 using Microsoft.OpenApi.Models;
 using System.Security.Claims;
 using System.Text.Json;
+using SkinCare_Data.IRepositories;
+using SkinCare_Data.Repositories;
+using SkinCare_Service.IService;
+using SkinCare_Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -99,11 +103,14 @@ builder.Services.AddSwaggerGen(option =>
 
 // Add services
 builder.Services.AddAuthorization();
-builder.Services.AddScoped<AuthService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<ProductService>();
-builder.Services.AddScoped<SkinCareRoutineService>();
-builder.Services.AddScoped<SkinTypeService>();
+builder.Services.AddScoped<ISkinCareRoutineService, SkinCareRoutineService>();
+builder.Services.AddScoped<ISkinCareRoutineRepository, SkinCareRoutineRepository>();
+builder.Services.AddScoped<ISkinTypeService, SkinTypeService>(); 
+builder.Services.AddScoped<ISkinTypeRepository, SkinTypeRepository>();
 
 
 var app = builder.Build();
