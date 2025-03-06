@@ -1,18 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SkinCare_Data.DTO.Login;
-using System.Threading.Tasks;
 using SkinCare_Data.DTO.Register;
+using SkinCare_Service.IService; 
+using System.Threading.Tasks;
 
 [Route("api/auth")]
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly AuthService _authService;
+    private readonly IAuthService _authService; 
 
-    public AuthController(AuthService authService)
+    public AuthController(IAuthService authService)
     {
         _authService = authService;
     }
+
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
     {

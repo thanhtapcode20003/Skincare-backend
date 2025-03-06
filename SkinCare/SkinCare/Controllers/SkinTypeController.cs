@@ -3,22 +3,23 @@ using Microsoft.AspNetCore.Mvc;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO;
 using SkinCare_Data.DTO.Skin;
+using SkinCare_Service.IService; 
 using System.Threading.Tasks;
 
 [Route("api/skin-types")]
 [ApiController]
 public class SkinTypeController : ControllerBase
 {
-    private readonly SkinTypeService _skinTypeService;
+    private readonly ISkinTypeService _skinTypeService; 
     private readonly ILogger<SkinTypeController> _logger;
 
-    public SkinTypeController(SkinTypeService skinTypeService, ILogger<SkinTypeController> logger)
+    public SkinTypeController(ISkinTypeService skinTypeService, ILogger<SkinTypeController> logger)
     {
         _skinTypeService = skinTypeService;
         _logger = logger;
     }
 
-    // GET: api/skin-types (Không yêu cầu authorize, bất kỳ ai cũng có thể truy cập)
+    
     [HttpGet]
     public async Task<ActionResult<List<SkinType>>> GetSkinTypes()
     {
@@ -36,7 +37,7 @@ public class SkinTypeController : ControllerBase
         }
     }
 
-    // GET: api/skin-types/{id} (Không yêu cầu authorize, bất kỳ ai cũng có thể truy cập)
+    
     [HttpGet("{id}")]
     public async Task<ActionResult<SkinType>> GetSkinType(string id)
     {
@@ -91,7 +92,7 @@ public class SkinTypeController : ControllerBase
         {
             _logger.LogInformation("Updating SkinType with ID: {SkinTypeId}", id);
 
-            // Không kiểm tra SkinTypeId trong DTO nữa, vì SkinTypeId không được phép cập nhật
+            
             var updatedSkinType = await _skinTypeService.UpdateSkinTypeAsync(id, updateSkinTypeDto);
             return Ok(updatedSkinType);
         }

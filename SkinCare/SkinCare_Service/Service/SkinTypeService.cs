@@ -1,185 +1,187 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using SkinCare_Data;
+﻿using Microsoft.Extensions.Logging;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO;
 using SkinCare_Data.DTO.Skin;
+using SkinCare_Data.IRepositories;
+using SkinCare_Service.IService;
 using System.Threading.Tasks;
 
-public class SkinTypeService
+namespace SkinCare_Service
 {
-    private readonly SkinCare_DBContext _context;
-    private readonly ILogger<SkinTypeService> _logger;
-
-    public SkinTypeService(SkinCare_DBContext context, ILogger<SkinTypeService> logger)
+    public class SkinTypeService : ISkinTypeService
     {
-        _context = context;
-        _logger = logger;
-    }
+        private readonly ISkinTypeRepository _repository;
+        private readonly ILogger<SkinTypeService> _logger;
 
-    // Get all SkinTypes
-    public async Task<List<SkinType>> GetAllSkinTypesAsync()
-    {
-        try
+        public SkinTypeService(ISkinTypeRepository repository, ILogger<SkinTypeService> logger)
         {
-            _logger.LogInformation("Fetching all SkinTypes");
-
-            var skinTypes = await _context.SkinTypes
-                .Include(st => st.SkinCareRoutine)
-                .ToListAsync();
-            return skinTypes;
+            _repository = repository;
+            _logger = logger;
         }
-        catch (Exception ex)
+
+        public async Task<List<SkinType>> GetAllSkinTypesAsync()
         {
-            _logger.LogError(ex, "Error fetching SkinTypes: {ErrorMessage}", ex.Message);
-            throw;
-        }
-    }
-
-    // Get SkinType by ID
-    public async Task<SkinType> GetSkinTypeByIdAsync(string skinTypeId)
-    {
-        try
-        {
-            _logger.LogInformation("Fetching SkinType with ID: {SkinTypeId}", skinTypeId);
-
-            var skinType = await _context.SkinTypes
-                .Include(st => st.SkinCareRoutine)
-                .FirstOrDefaultAsync(st => st.SkinTypeId == skinTypeId);
-
-            if (skinType == null)
+            try
             {
-                _logger.LogWarning("SkinType not found with ID: {SkinTypeId}", skinTypeId);
-                return null;
+                _logger.LogInformation("Fetching all SkinTypes");
+
+                var skinTypes = await _repository.GetAllAsync();
+                return skinTypes;
             }
-
-            return skinType;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error fetching SkinType with ID {SkinTypeId}: {ErrorMessage}", skinTypeId, ex.Message);
-            throw;
-        }
-    }
-
-    // Create SkinType (using CreateSkinTypeDto, tự động tạo SkinTypeId)
-    public async Task<SkinType> CreateSkinTypeAsync(CreateSkinTypeDto createSkinTypeDto)
-    {
-        try
-        {
-            _logger.LogInformation("Creating new SkinType");
-
-            if (string.IsNullOrEmpty(createSkinTypeDto.SkinTypeName))
+            catch (Exception ex)
             {
-                throw new Exception("SkinTypeName is required!");
+                _logger.LogError(ex, "Error fetching SkinTypes: {ErrorMessage}", ex.Message);
+                throw;
             }
+        }
 
-            // Tự động tạo SkinTypeId (SK001, SK002, ...)
-            int skinTypeCount = await _context.SkinTypes.CountAsync() + 1;
-            string skinTypeId = $"SK{skinTypeCount:D3}"; // Ví dụ: SK001, SK002, ...
-
-            // Kiểm tra SkinTypeId có trùng không (dù ít xảy ra vì tự động tạo, nhưng để an toàn)
-            if (await _context.SkinTypes.AnyAsync(st => st.SkinTypeId == skinTypeId))
+        public async Task<SkinType> GetSkinTypeByIdAsync(string skinTypeId)
+        {
+            try
             {
-                throw new Exception("SkinTypeId generation conflict! Please try again.");
-            }
+                _logger.LogInformation("Fetching SkinType with ID: {SkinTypeId}", skinTypeId);
 
-            // Kiểm tra RoutineId nếu có (nếu không null, phải tồn tại trong SkinCareRoutines)
-            if (!string.IsNullOrEmpty(createSkinTypeDto.RoutineId))
-            {
-                var routine = await _context.SkinCareRoutines.FindAsync(createSkinTypeDto.RoutineId);
-                if (routine == null)
+                var skinType = await _repository.GetByIdAsync(skinTypeId);
+                if (skinType == null)
                 {
-                    throw new Exception("RoutineId does not exist!");
+                    _logger.LogWarning("SkinType not found with ID: {SkinTypeId}", skinTypeId);
+                    return null;
                 }
+
+                return skinType;
             }
-
-            // Tạo đối tượng SkinType từ DTO
-            var skinType = new SkinType
+            catch (Exception ex)
             {
-                SkinTypeId = skinTypeId,
-                SkinTypeName = createSkinTypeDto.SkinTypeName,
-                Description = createSkinTypeDto.Description,
-                RoutineId = createSkinTypeDto.RoutineId
-            };
-
-            _context.SkinTypes.Add(skinType);
-            await _context.SaveChangesAsync();
-
-            return skinType;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error creating SkinType: {ErrorMessage}", ex.Message);
-            throw;
-        }
-    }
-
-    // Update SkinType (sử dụng UpdateSkinTypeDto, không cập nhật SkinTypeId)
-    public async Task<SkinType> UpdateSkinTypeAsync(string skinTypeId, UpdateSkinTypeDto updateSkinTypeDto)
-    {
-        try
-        {
-            _logger.LogInformation("Updating SkinType with ID: {SkinTypeId}", skinTypeId);
-
-            var existingSkinType = await _context.SkinTypes.FindAsync(skinTypeId);
-            if (existingSkinType == null)
-            {
-                throw new Exception("SkinType not found!");
+                _logger.LogError(ex, "Error fetching SkinType with ID {SkinTypeId}: {ErrorMessage}", skinTypeId, ex.Message);
+                throw;
             }
+        }
 
-            // Cập nhật các trường từ DTO, không cập nhật SkinTypeId
-            existingSkinType.SkinTypeName = updateSkinTypeDto.SkinTypeName ?? existingSkinType.SkinTypeName;
-            existingSkinType.Description = updateSkinTypeDto.Description ?? existingSkinType.Description;
-
-            // Kiểm tra RoutineId nếu có (nếu không null, phải tồn tại trong SkinCareRoutines)
-            if (!string.IsNullOrEmpty(updateSkinTypeDto.RoutineId))
+        public async Task<SkinType> CreateSkinTypeAsync(CreateSkinTypeDto createSkinTypeDto)
+        {
+            try
             {
-                var routine = await _context.SkinCareRoutines.FindAsync(updateSkinTypeDto.RoutineId);
-                if (routine == null)
+                _logger.LogInformation("Creating new SkinType");
+
+                if (string.IsNullOrEmpty(createSkinTypeDto.SkinTypeName))
                 {
-                    throw new Exception("RoutineId does not exist!");
+                    throw new Exception("SkinTypeName is required!");
                 }
-                existingSkinType.RoutineId = updateSkinTypeDto.RoutineId;
+
+                if (!string.IsNullOrEmpty(createSkinTypeDto.RoutineId))
+                {
+                    if (!await _repository.RoutineExistsAsync(createSkinTypeDto.RoutineId))
+                    {
+                        throw new Exception("RoutineId does not exist!");
+                    }
+                }
+
+                string skinTypeId = null;
+                int maxRetries = 5; 
+                for (int attempt = 0; attempt < maxRetries; attempt++)
+                {
+                    
+                    int maxSkinTypeNumber = await _repository.GetMaxSkinTypeIdNumberAsync();
+                    int newSkinTypeNumber = maxSkinTypeNumber + 1;
+                    skinTypeId = $"SK{newSkinTypeNumber:D3}"; 
+
+                 
+                    if (!await _repository.ExistsAsync(skinTypeId))
+                    {
+                        break; 
+                    }
+
+               
+                    await Task.Delay(100); 
+                    if (attempt == maxRetries - 1)
+                    {
+                        throw new Exception("SkinTypeID generation conflict after multiple attempts! Please try again later.");
+                    }
+                }
+
+                // Tạo đối tượng SkinType từ DTO
+                var skinType = new SkinType
+                {
+                    SkinTypeId = skinTypeId,
+                    SkinTypeName = createSkinTypeDto.SkinTypeName,
+                    Description = createSkinTypeDto.Description,
+                    RoutineId = createSkinTypeDto.RoutineId
+                };
+
+                await _repository.AddAsync(skinType);
+                await _repository.SaveChangesAsync();
+
+                return skinType;
             }
-            else
+            catch (Exception ex)
             {
-                existingSkinType.RoutineId = null; // Nếu không gửi RoutineId, đặt về null
+                _logger.LogError(ex, "Error creating SkinType: {ErrorMessage}", ex.Message);
+                throw;
             }
-
-            await _context.SaveChangesAsync();
-
-            return existingSkinType;
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error updating SkinType with ID {SkinTypeId}: {ErrorMessage}", skinTypeId, ex.Message);
-            throw;
-        }
-    }
 
-    // Delete SkinType
-    public async Task<bool> DeleteSkinTypeAsync(string skinTypeId)
-    {
-        try
+        public async Task<SkinType> UpdateSkinTypeAsync(string skinTypeId, UpdateSkinTypeDto updateSkinTypeDto)
         {
-            _logger.LogInformation("Deleting SkinType with ID: {SkinTypeId}", skinTypeId);
-
-            var skinType = await _context.SkinTypes.FindAsync(skinTypeId);
-            if (skinType == null)
+            try
             {
-                _logger.LogWarning("SkinType not found with ID: {SkinTypeId}", skinTypeId);
-                return false;
-            }
+                _logger.LogInformation("Updating SkinType with ID: {SkinTypeId}", skinTypeId);
 
-            _context.SkinTypes.Remove(skinType);
-            await _context.SaveChangesAsync();
-            return true;
+                var existingSkinType = await _repository.GetByIdAsync(skinTypeId);
+                if (existingSkinType == null)
+                {
+                    throw new Exception("SkinType not found!");
+                }
+
+                existingSkinType.SkinTypeName = updateSkinTypeDto.SkinTypeName ?? existingSkinType.SkinTypeName;
+                existingSkinType.Description = updateSkinTypeDto.Description ?? existingSkinType.Description;
+
+                if (!string.IsNullOrEmpty(updateSkinTypeDto.RoutineId))
+                {
+                    if (!await _repository.RoutineExistsAsync(updateSkinTypeDto.RoutineId))
+                    {
+                        throw new Exception("RoutineId does not exist!");
+                    }
+                    existingSkinType.RoutineId = updateSkinTypeDto.RoutineId;
+                }
+                else
+                {
+                    existingSkinType.RoutineId = null; 
+                }
+
+                await _repository.UpdateAsync(existingSkinType);
+                await _repository.SaveChangesAsync();
+
+                return existingSkinType;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating SkinType with ID {SkinTypeId}: {ErrorMessage}", skinTypeId, ex.Message);
+                throw;
+            }
         }
-        catch (Exception ex)
+
+        public async Task<bool> DeleteSkinTypeAsync(string skinTypeId)
         {
-            _logger.LogError(ex, "Error deleting SkinType with ID {SkinTypeId}: {ErrorMessage}", skinTypeId, ex.Message);
-            throw;
+            try
+            {
+                _logger.LogInformation("Deleting SkinType with ID: {SkinTypeId}", skinTypeId);
+
+                var skinType = await _repository.GetByIdAsync(skinTypeId);
+                if (skinType == null)
+                {
+                    _logger.LogWarning("SkinType not found with ID: {SkinTypeId}", skinTypeId);
+                    return false;
+                }
+
+                await _repository.DeleteAsync(skinType);
+                await _repository.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting SkinType with ID {SkinTypeId}: {ErrorMessage}", skinTypeId, ex.Message);
+                throw;
+            }
         }
     }
 }

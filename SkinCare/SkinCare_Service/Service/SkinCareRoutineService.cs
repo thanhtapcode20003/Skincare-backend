@@ -1,152 +1,162 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using SkinCare_Data;
+﻿using Microsoft.Extensions.Logging;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO;
 using SkinCare_Data.DTO.Routine;
+using SkinCare_Data.IRepositories;
+using SkinCare_Service.IService;
 using System.Threading.Tasks;
 
-public class SkinCareRoutineService
+namespace SkinCare_Service
 {
-    private readonly SkinCare_DBContext _context;
-    private readonly ILogger<SkinCareRoutineService> _logger;
-
-    public SkinCareRoutineService(SkinCare_DBContext context, ILogger<SkinCareRoutineService> logger)
+    public class SkinCareRoutineService : ISkinCareRoutineService
     {
-        _context = context;
-        _logger = logger;
-    }
+        private readonly ISkinCareRoutineRepository _repository;
+        private readonly ILogger<SkinCareRoutineService> _logger;
 
-    public async Task<List<SkinCareRoutine>> GetAllSkinCareRoutinesAsync()
-    {
-        try
+        public SkinCareRoutineService(ISkinCareRoutineRepository repository, ILogger<SkinCareRoutineService> logger)
         {
-            _logger.LogInformation("Fetching all SkinCareRoutines");
-
-            var routines = await _context.SkinCareRoutines.ToListAsync();
-            return routines;
+            _repository = repository;
+            _logger = logger;
         }
-        catch (Exception ex)
+
+        
+        public async Task<List<SkinCareRoutine>> GetAllSkinCareRoutinesAsync()
         {
-            _logger.LogError(ex, "Error fetching SkinCareRoutines: {ErrorMessage}", ex.Message);
-            throw;
-        }
-    }
-
-    public async Task<SkinCareRoutine> GetSkinCareRoutineByIdAsync(string routineId)
-    {
-        try
-        {
-            _logger.LogInformation("Fetching SkinCareRoutine with ID: {RoutineId}", routineId);
-
-            var routine = await _context.SkinCareRoutines
-                .FirstOrDefaultAsync(r => r.RoutineId == routineId);
-
-            if (routine == null)
+            try
             {
-                _logger.LogWarning("SkinCareRoutine not found with ID: {RoutineId}", routineId);
-                return null;
+                _logger.LogInformation("Fetching all SkinCareRoutines");
+
+                var routines = await _repository.GetAllAsync();
+                return routines;
             }
-
-            return routine;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error fetching SkinCareRoutine with ID {RoutineId}: {ErrorMessage}", routineId, ex.Message);
-            throw;
-        }
-    }
-
-    public async Task<SkinCareRoutine> CreateSkinCareRoutineAsync(CreateSkinCareRoutineDto createRoutineDto)
-    {
-        try
-        {
-            _logger.LogInformation("Creating new SkinCareRoutine");
-
-            if (string.IsNullOrEmpty(createRoutineDto.Description))
+            catch (Exception ex)
             {
-                throw new Exception("Description is required!");
+                _logger.LogError(ex, "Error fetching SkinCareRoutines: {ErrorMessage}", ex.Message);
+                throw;
             }
-            if (string.IsNullOrEmpty(createRoutineDto.Type))
+        }
+
+        
+        public async Task<SkinCareRoutine> GetSkinCareRoutineByIdAsync(string routineId)
+        {
+            try
             {
-                throw new Exception("Type is required!");
+                _logger.LogInformation("Fetching SkinCareRoutine with ID: {RoutineId}", routineId);
+
+                var routine = await _repository.GetByIdAsync(routineId);
+                if (routine == null)
+                {
+                    _logger.LogWarning("SkinCareRoutine not found with ID: {RoutineId}", routineId);
+                    return null;
+                }
+
+                return routine;
             }
-
-            int routineCount = await _context.SkinCareRoutines.CountAsync() + 1;
-            string routineId = $"R{routineCount:D3}"; 
-
-            if (await _context.SkinCareRoutines.AnyAsync(r => r.RoutineId == routineId))
+            catch (Exception ex)
             {
-                throw new Exception("RoutineId generation conflict! Please try again.");
+                _logger.LogError(ex, "Error fetching SkinCareRoutine with ID {RoutineId}: {ErrorMessage}", routineId, ex.Message);
+                throw;
             }
-
-            // Tạo đối tượng SkinCareRoutine từ DTO
-            var routine = new SkinCareRoutine
-            {
-                RoutineId = routineId,
-                Description = createRoutineDto.Description,
-                Type = createRoutineDto.Type
-            };
-
-            _context.SkinCareRoutines.Add(routine);
-            await _context.SaveChangesAsync();
-
-            return routine;
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error creating SkinCareRoutine: {ErrorMessage}", ex.Message);
-            throw;
-        }
-    }
 
-    public async Task<SkinCareRoutine> UpdateSkinCareRoutineAsync(string routineId, UpdateSkinCareRoutineDto updateRoutineDto)
-    {
-        try
+       
+        public async Task<SkinCareRoutine> CreateSkinCareRoutineAsync(CreateSkinCareRoutineDto createRoutineDto)
         {
-            _logger.LogInformation("Updating SkinCareRoutine with ID: {RoutineId}", routineId);
-
-            var existingRoutine = await _context.SkinCareRoutines.FindAsync(routineId);
-            if (existingRoutine == null)
+            try
             {
-                throw new Exception("SkinCareRoutine not found!");
+                _logger.LogInformation("Creating new SkinCareRoutine");
+
+                if (string.IsNullOrEmpty(createRoutineDto.Description))
+                {
+                    throw new Exception("Description is required!");
+                }
+                if (string.IsNullOrEmpty(createRoutineDto.Type))
+                {
+                    throw new Exception("Type is required!");
+                }
+
+                
+                int routineCount = await _repository.GetCountAsync() + 1;
+                string routineId = $"R{routineCount:D3}"; 
+
+               
+                if (await _repository.ExistsAsync(routineId))
+                {
+                    throw new Exception("RoutineId generation conflict! Please try again.");
+                }
+
+             
+                var routine = new SkinCareRoutine
+                {
+                    RoutineId = routineId,
+                    Description = createRoutineDto.Description,
+                    Type = createRoutineDto.Type
+                };
+
+                await _repository.AddAsync(routine);
+                await _repository.SaveChangesAsync();
+
+                return routine;
             }
-
-            existingRoutine.Description = updateRoutineDto.Description ?? existingRoutine.Description;
-            existingRoutine.Type = updateRoutineDto.Type ?? existingRoutine.Type;
-
-            await _context.SaveChangesAsync();
-
-            return existingRoutine;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error updating SkinCareRoutine with ID {RoutineId}: {ErrorMessage}", routineId, ex.Message);
-            throw;
-        }
-    }
-
-    public async Task<bool> DeleteSkinCareRoutineAsync(string routineId)
-    {
-        try
-        {
-            _logger.LogInformation("Deleting SkinCareRoutine with ID: {RoutineId}", routineId);
-
-            var routine = await _context.SkinCareRoutines.FindAsync(routineId);
-            if (routine == null)
+            catch (Exception ex)
             {
-                _logger.LogWarning("SkinCareRoutine not found with ID: {RoutineId}", routineId);
-                return false;
+                _logger.LogError(ex, "Error creating SkinCareRoutine: {ErrorMessage}", ex.Message);
+                throw;
             }
-
-            _context.SkinCareRoutines.Remove(routine);
-            await _context.SaveChangesAsync();
-            return true;
         }
-        catch (Exception ex)
+
+      
+        public async Task<SkinCareRoutine> UpdateSkinCareRoutineAsync(string routineId, UpdateSkinCareRoutineDto updateRoutineDto)
         {
-            _logger.LogError(ex, "Error deleting SkinCareRoutine with ID {RoutineId}: {ErrorMessage}", routineId, ex.Message);
-            throw;
+            try
+            {
+                _logger.LogInformation("Updating SkinCareRoutine with ID: {RoutineId}", routineId);
+
+                var existingRoutine = await _repository.GetByIdAsync(routineId);
+                if (existingRoutine == null)
+                {
+                    throw new Exception("SkinCareRoutine not found!");
+                }
+
+                
+                existingRoutine.Description = updateRoutineDto.Description ?? existingRoutine.Description;
+                existingRoutine.Type = updateRoutineDto.Type ?? existingRoutine.Type;
+
+                await _repository.UpdateAsync(existingRoutine);
+                await _repository.SaveChangesAsync();
+
+                return existingRoutine;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating SkinCareRoutine with ID {RoutineId}: {ErrorMessage}", routineId, ex.Message);
+                throw;
+            }
+        }
+
+       
+        public async Task<bool> DeleteSkinCareRoutineAsync(string routineId)
+        {
+            try
+            {
+                _logger.LogInformation("Deleting SkinCareRoutine with ID: {RoutineId}", routineId);
+
+                var routine = await _repository.GetByIdAsync(routineId);
+                if (routine == null)
+                {
+                    _logger.LogWarning("SkinCareRoutine not found with ID: {RoutineId}", routineId);
+                    return false;
+                }
+
+                await _repository.DeleteAsync(routine);
+                await _repository.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting SkinCareRoutine with ID {RoutineId}: {ErrorMessage}", routineId, ex.Message);
+                throw;
+            }
         }
     }
 }
