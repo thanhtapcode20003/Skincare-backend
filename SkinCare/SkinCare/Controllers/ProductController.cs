@@ -3,16 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO;
 using SkinCare_Data.DTO.Product;
+using SkinCare_Service.IService; // Thêm namespace để sử dụng IProductService
 using System.Threading.Tasks;
 
 [Route("api/products")]
 [ApiController]
 public class ProductController : ControllerBase
 {
-    private readonly ProductService _productService;
+    private readonly IProductService _productService;
     private readonly ILogger<ProductController> _logger;
 
-    public ProductController(ProductService productService, ILogger<ProductController> logger)
+    public ProductController(IProductService productService, ILogger<ProductController> logger)
     {
         _productService = productService;
         _logger = logger;
@@ -60,7 +61,7 @@ public class ProductController : ControllerBase
         }
     }
 
-    // POST: api/products (Chỉ Staff mới có thể truy cập, sử dụng CreateProductDto)
+    // POST: api/products/create (Chỉ Staff mới có thể truy cập, sử dụng CreateProductDto)
     [HttpPost("create")]
     [Authorize(Roles = "Staff")]
     public async Task<ActionResult<Product>> CreateProduct(CreateProductDto createProductDto)
@@ -88,7 +89,7 @@ public class ProductController : ControllerBase
         }
     }
 
-    // PUT: api/products/{id} (Chỉ Staff mới có thể truy cập, sử dụng UpdateProductDto)
+    // PUT: api/products/edit/{id} (Chỉ Staff mới có thể truy cập, sử dụng UpdateProductDto)
     [HttpPut("edit/{id}")]
     [Authorize(Roles = "Staff")]
     public async Task<IActionResult> UpdateProduct(string id, UpdateProductDto updateProductDto)
@@ -97,10 +98,11 @@ public class ProductController : ControllerBase
         {
             _logger.LogInformation("Updating product with ID: {ProductId}", id);
 
-            if (id != updateProductDto.ProductName) // Kiểm tra ProductName thay vì ProductId (nếu cần, bạn có thể yêu cầu kiểm tra ProductId)
-            {
-                return BadRequest(new { message = "Product ID mismatch" });
-            }
+            // Lưu ý: Kiểm tra ProductId thay vì ProductName (sửa logic kiểm tra)
+           // if (id != updateProductDto.ProductId) // Sử dụng ProductId từ DTO
+           // {
+             //   return BadRequest(new { message = "Product ID mismatch" });
+          //  }
 
             var updatedProduct = await _productService.UpdateProductAsync(id, updateProductDto);
             return Ok(updatedProduct);
@@ -112,7 +114,7 @@ public class ProductController : ControllerBase
         }
     }
 
-    // DELETE: api/products/{id} (Chỉ Staff mới có thể truy cập)
+    // DELETE: api/products/delete/{id} (Chỉ Staff mới có thể truy cập)
     [HttpDelete("delete/{id}")]
     [Authorize(Roles = "Staff")]
     public async Task<IActionResult> DeleteProduct(string id)

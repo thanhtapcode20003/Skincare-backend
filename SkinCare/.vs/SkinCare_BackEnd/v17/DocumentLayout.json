@@ -1,134 +1,174 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\",
+  "WorkspaceRootPath": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\skintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\skintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Migrations\\20250306143504_InitiateCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SkinCare_Data\\Migrations\\20250306143504_InitiateCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\skincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\skincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iskintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iskintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iskincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iskincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\repositories\\skintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\skintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\repositories\\skincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\skincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iskintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iskintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iskincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iskincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\controllers\\skintypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\skintypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\controllers\\skincareroutinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\skincareroutinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_service\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\skin\\updateskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\skin\\updateskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\skin\\createskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\skin\\createskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\routine\\updateskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\routine\\updateskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\routine\\createskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\routine\\createskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\data\\skincareroutine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\skincareroutine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\skincare_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\skincare_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\product\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\product\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\product\\updateproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\skincare_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\skincare_dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\data\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\data\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\data\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\data\\ratingsfeedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\ratingsfeedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\skintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\skintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\controllers\\skincareroutinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\skincareroutinecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\skintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\skintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\skincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\skincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iskintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iskintypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iskincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iskincareroutineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_service\\service\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{801A837B-1E75-4E42-A1D3-37D5D4E5DDAC}|SkinCare_Service\\SkinCare_Service.csproj|solutionrelative:skincare_service\\service\\iservice\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\skincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\skincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\authrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iskintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iskintyperepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iskincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iskincareroutinerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\repositories\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\repositories\\irepositories\\iauthrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\controllers\\skintypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\skintypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\skin\\updateskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\skin\\updateskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\skin\\createskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\skin\\createskintypedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\routine\\updateskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\routine\\updateskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\routine\\createskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\routine\\createskincareroutinedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\data\\skincareroutine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\data\\skincareroutine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\product\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{7A77A169-9CFE-4231-9A5E-928790BBE682}|SkinCare\\SkinCare_API.csproj|solutionrelative:skincare\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\dto\\user\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd8\\skincare-backend\\skincare\\skincare_data\\dto\\user\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\dto\\user\\updateuserrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|d:\\code\\swd7\\skincare-backend\\skincare\\skincare_data\\migrations\\20250303153136_initiatecreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F303B8FC-CB81-488D-A1AB-596F55B73EB4}|SkinCare_Data\\SkinCare_Data.csproj|solutionrelative:skincare_data\\migrations\\20250303153136_initiatecreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -138,106 +178,144 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ISkinCareRoutineService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
-              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
-              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "20250306143504_InitiateCreate.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Migrations\\20250306143504_InitiateCreate.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Migrations\\20250306143504_InitiateCreate.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Migrations\\20250306143504_InitiateCreate.cs",
+              "RelativeToolTip": "SkinCare_Data\\Migrations\\20250306143504_InitiateCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:30:29.648Z",
+              "WhenOpened": "2025-03-06T14:35:04.711Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ISkinTypeService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
-              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
-              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:47:12.001Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\AuthService.cs",
-              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\AuthService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\AuthService.cs",
-              "RelativeToolTip": "SkinCare_Service\\Service\\AuthService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAxwHIAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T15:00:26.234Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\ProductService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\ProductService.cs",
               "RelativeDocumentMoniker": "SkinCare_Service\\Service\\ProductService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\ProductService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\ProductService.cs",
               "RelativeToolTip": "SkinCare_Service\\Service\\ProductService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALEAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAjwFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-03T14:30:40.871Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SkinCareRoutineService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinCareRoutineService.cs",
-              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\SkinCareRoutineService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinCareRoutineService.cs",
-              "RelativeToolTip": "SkinCare_Service\\Service\\SkinCareRoutineService.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAAowIgAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "SkinCare\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "SkinCare\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAewGcAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T15:18:05.536Z",
+              "WhenOpened": "2025-03-03T14:30:57.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SkinTypeService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinTypeService.cs",
-              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\SkinTypeService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinTypeService.cs",
-              "RelativeToolTip": "SkinCare_Service\\Service\\SkinTypeService.cs",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAowKIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UpdateProductDto.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
+              "RelativeToolTip": "SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T16:15:34.026Z",
+              "WhenOpened": "2025-03-03T14:35:05.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SkinCare_DBContext.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_DBContext.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\SkinCare_DBContext.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_DBContext.cs",
+              "RelativeToolTip": "SkinCare_Data\\SkinCare_DBContext.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAQwKoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T15:26:58.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Category.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Data\\Category.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Category.cs",
+              "RelativeToolTip": "SkinCare_Data\\Data\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T14:19:29.159Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
-              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
-              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Data\\OrderDetail.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\OrderDetail.cs",
+              "RelativeToolTip": "SkinCare_Data\\Data\\OrderDetail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T03:01:53.622Z",
+              "WhenOpened": "2025-03-06T14:17:17.937Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Order.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Data\\Order.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Order.cs",
+              "RelativeToolTip": "SkinCare_Data\\Data\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T14:17:09.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RatingsFeedback.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\RatingsFeedback.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Data\\RatingsFeedback.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\RatingsFeedback.cs",
+              "RelativeToolTip": "SkinCare_Data\\Data\\RatingsFeedback.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T14:08:19.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "SkinTypeRepository.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinTypeRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinTypeRepository.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\SkinTypeRepository.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinTypeRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinTypeRepository.cs",
               "RelativeToolTip": "SkinCare_Data\\Repositories\\SkinTypeRepository.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAowDcAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -246,89 +324,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SkinCareRoutineRepository.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
-              "RelativeToolTip": "SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAA0wDoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:31:30.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthRepository.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\AuthRepository.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\AuthRepository.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\AuthRepository.cs",
-              "RelativeToolTip": "SkinCare_Data\\Repositories\\AuthRepository.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAQwBMAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T03:02:22.551Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ISkinTypeRepository.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
-              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:47:27.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ISkinCareRoutineRepository.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
-              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:31:02.665Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "IAuthRepository.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
-              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T03:02:06.909Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SkinTypeController.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinTypeController.cs",
-              "RelativeDocumentMoniker": "SkinCare\\Controllers\\SkinTypeController.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinTypeController.cs",
-              "RelativeToolTip": "SkinCare\\Controllers\\SkinTypeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T16:16:14.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
               "Title": "SkinCareRoutineController.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinCareRoutineController.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinCareRoutineController.cs",
               "RelativeDocumentMoniker": "SkinCare\\Controllers\\SkinCareRoutineController.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinCareRoutineController.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinCareRoutineController.cs",
               "RelativeToolTip": "SkinCare\\Controllers\\SkinCareRoutineController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -337,75 +337,298 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "SkinCare\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "SkinCare\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Product.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Data\\Product.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Product.cs",
+              "RelativeToolTip": "SkinCare_Data\\Data\\Product.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAgwCQAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T02:57:02.29Z",
+              "WhenOpened": "2025-03-03T14:26:07.408Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SkinCare\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\UserController.cs",
-              "RelativeToolTip": "SkinCare\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAAAIwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\ProductRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T15:31:33.171Z",
+              "WhenOpened": "2025-03-06T13:42:21.934Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Program.cs",
+              "RelativeDocumentMoniker": "SkinCare\\Program.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Program.cs",
+              "RelativeToolTip": "SkinCare\\Program.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAAAG0AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T14:38:29.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\IProductRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IProductRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\IProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:41:49.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IProductService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\IProductService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IProductService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:41:20.934Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IUserService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\IUserService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IUserService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:31:19.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\IUserRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IUserRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:31:46.688Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAADwv04AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:32:06.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\UserService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "SkinCare_Service\\Service\\UserService.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\UserService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\UserService.cs",
               "RelativeToolTip": "SkinCare_Service\\Service\\UserService.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAAAKwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T03:04:53.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Program.cs",
-              "RelativeDocumentMoniker": "SkinCare\\Program.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Program.cs",
-              "RelativeToolTip": "SkinCare\\Program.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAAAAGkAAAA4AAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "SkinCare\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\UserController.cs",
+              "RelativeToolTip": "SkinCare\\Controllers\\UserController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T14:38:29.036Z",
+              "WhenOpened": "2025-03-04T15:31:33.171Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "SkinCareRoutineService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinCareRoutineService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\SkinCareRoutineService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinCareRoutineService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\SkinCareRoutineService.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAowIgAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T15:18:05.536Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\AuthService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\AuthService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\AuthService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAxwHIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T15:00:26.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ISkinTypeService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\ISkinTypeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T02:47:12.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SkinTypeService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinTypeService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\SkinTypeService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\SkinTypeService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\SkinTypeService.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAowKIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:15:34.026Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ISkinCareRoutineService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\ISkinCareRoutineService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T02:30:29.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
+              "RelativeDocumentMoniker": "SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
+              "RelativeToolTip": "SkinCare_Service\\Service\\Iservice\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T03:01:53.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "SkinCareRoutineRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\SkinCareRoutineRepository.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAA0wDoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T02:31:30.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AuthRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\AuthRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\AuthRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\AuthRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\AuthRepository.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwBMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T03:02:22.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "ISkinTypeRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\ISkinTypeRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T02:47:27.091Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ISkinCareRoutineRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\ISkinCareRoutineRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T02:31:02.665Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IAuthRepository.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
+              "RelativeDocumentMoniker": "SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
+              "RelativeToolTip": "SkinCare_Data\\Repositories\\Irepositories\\IAuthRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T03:02:06.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "SkinTypeController.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinTypeController.cs",
+              "RelativeDocumentMoniker": "SkinCare\\Controllers\\SkinTypeController.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\SkinTypeController.cs",
+              "RelativeToolTip": "SkinCare\\Controllers\\SkinTypeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T16:16:14.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "SkinCare\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "SkinCare\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T02:57:02.29Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
               "Title": "UpdateSkinTypeDto.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\UpdateSkinTypeDto.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\UpdateSkinTypeDto.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Skin\\UpdateSkinTypeDto.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\UpdateSkinTypeDto.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\UpdateSkinTypeDto.cs",
               "RelativeToolTip": "SkinCare_Data\\DTO\\Skin\\UpdateSkinTypeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -413,11 +636,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 35,
               "Title": "CreateSkinTypeDto.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\CreateSkinTypeDto.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\CreateSkinTypeDto.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Skin\\CreateSkinTypeDto.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\CreateSkinTypeDto.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Skin\\CreateSkinTypeDto.cs",
               "RelativeToolTip": "SkinCare_Data\\DTO\\Skin\\CreateSkinTypeDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -425,11 +648,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 36,
               "Title": "UpdateSkinCareRoutineDto.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\UpdateSkinCareRoutineDto.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\UpdateSkinCareRoutineDto.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Routine\\UpdateSkinCareRoutineDto.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\UpdateSkinCareRoutineDto.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\UpdateSkinCareRoutineDto.cs",
               "RelativeToolTip": "SkinCare_Data\\DTO\\Routine\\UpdateSkinCareRoutineDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -437,11 +660,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 37,
               "Title": "CreateSkinCareRoutineDto.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\CreateSkinCareRoutineDto.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\CreateSkinCareRoutineDto.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Routine\\CreateSkinCareRoutineDto.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\CreateSkinCareRoutineDto.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Routine\\CreateSkinCareRoutineDto.cs",
               "RelativeToolTip": "SkinCare_Data\\DTO\\Routine\\CreateSkinCareRoutineDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -449,11 +672,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 38,
               "Title": "SkinCareRoutine.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\SkinCareRoutine.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\SkinCareRoutine.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\Data\\SkinCareRoutine.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\SkinCareRoutine.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\SkinCareRoutine.cs",
               "RelativeToolTip": "SkinCare_Data\\Data\\SkinCareRoutine.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -461,35 +684,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "20250303153136_InitiateCreate.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Migrations\\20250303153136_InitiateCreate.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Migrations\\20250303153136_InitiateCreate.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Migrations\\20250303153136_InitiateCreate.cs",
-              "RelativeToolTip": "SkinCare_Data\\Migrations\\20250303153136_InitiateCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T15:31:36.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "SkinCare_DBContext.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_DBContext.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\SkinCare_DBContext.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\SkinCare_DBContext.cs",
-              "RelativeToolTip": "SkinCare_Data\\SkinCare_DBContext.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAADwv4gAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T15:26:58.712Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 40,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\appsettings.json",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\appsettings.json",
               "RelativeDocumentMoniker": "SkinCare\\appsettings.json",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\appsettings.json",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare\\appsettings.json",
               "RelativeToolTip": "SkinCare\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAByAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -497,23 +696,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "SkinCare\\Controllers\\ProductController.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "SkinCare\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAgwHMAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T14:30:57.693Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 41,
               "Title": "UpdateUserRequest.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\User\\UpdateUserRequest.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\User\\UpdateUserRequest.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\User\\UpdateUserRequest.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\User\\UpdateUserRequest.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\User\\UpdateUserRequest.cs",
               "RelativeToolTip": "SkinCare_Data\\DTO\\User\\UpdateUserRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -521,39 +708,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "UpdateProductDto.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
-              "RelativeToolTip": "SkinCare_Data\\DTO\\Product\\UpdateProductDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T14:35:05.232Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 39,
               "Title": "CreateProductDto.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\CreateProductDto.cs",
+              "DocumentMoniker": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\CreateProductDto.cs",
               "RelativeDocumentMoniker": "SkinCare_Data\\DTO\\Product\\CreateProductDto.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\CreateProductDto.cs",
+              "ToolTip": "D:\\code\\swd8\\Skincare-backend\\SkinCare\\SkinCare_Data\\DTO\\Product\\CreateProductDto.cs",
               "RelativeToolTip": "SkinCare_Data\\DTO\\Product\\CreateProductDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-03T14:34:51.358Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Product.cs",
-              "RelativeDocumentMoniker": "SkinCare_Data\\Data\\Product.cs",
-              "ToolTip": "D:\\code\\swd7\\Skincare-backend\\SkinCare\\SkinCare_Data\\Data\\Product.cs",
-              "RelativeToolTip": "SkinCare_Data\\Data\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T14:26:07.408Z"
             }
           ]
         },

@@ -64,7 +64,12 @@ namespace SkinCare_Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ParentCategoryId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("CategoryId");
+
+                    b.HasIndex("ParentCategoryId");
 
                     b.ToTable("Categories");
                 });
@@ -111,6 +116,9 @@ namespace SkinCare_Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("OrderDetailId");
 
                     b.HasIndex("OrderId");
@@ -148,10 +156,6 @@ namespace SkinCare_Data.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
-
-                    b.Property<string>("RatingFeedback")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoutineId")
                         .HasColumnType("nvarchar(450)");
@@ -489,6 +493,16 @@ namespace SkinCare_Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SkinCare_Data.Data.Category", b =>
+                {
+                    b.HasOne("SkinCare_Data.Data.Category", "ParentCategory")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("ParentCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ParentCategory");
+                });
+
             modelBuilder.Entity("SkinCare_Data.Data.Order", b =>
                 {
                     b.HasOne("SkinCare_Data.Data.User", "User")
@@ -511,7 +525,7 @@ namespace SkinCare_Data.Migrations
                     b.HasOne("SkinCare_Data.Data.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -587,7 +601,7 @@ namespace SkinCare_Data.Migrations
             modelBuilder.Entity("SkinCare_Data.Data.RatingsFeedback", b =>
                 {
                     b.HasOne("SkinCare_Data.Data.Product", "Product")
-                        .WithMany()
+                        .WithMany("RatingsFeedbacks")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -650,9 +664,19 @@ namespace SkinCare_Data.Migrations
                     b.Navigation("SkinType");
                 });
 
+            modelBuilder.Entity("SkinCare_Data.Data.Category", b =>
+                {
+                    b.Navigation("SubCategories");
+                });
+
             modelBuilder.Entity("SkinCare_Data.Data.Order", b =>
                 {
                     b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("SkinCare_Data.Data.Product", b =>
+                {
+                    b.Navigation("RatingsFeedbacks");
                 });
 
             modelBuilder.Entity("SkinCare_Data.Data.Quizz", b =>

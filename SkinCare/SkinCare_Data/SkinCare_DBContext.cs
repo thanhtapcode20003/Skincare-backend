@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SkinCare_Data.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SkinCare_Data
 {
@@ -29,7 +25,6 @@ namespace SkinCare_Data
         public DbSet<Report> Reports { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -53,10 +48,10 @@ namespace SkinCare_Data
                 .WithOne(u => u.Role)
                 .HasForeignKey(u => u.RoleId);
             modelBuilder.Entity<Role>().HasData(
-                 new Role { RoleId = 1, RoleName = "Customer" },
-                 new Role { RoleId = 2, RoleName = "Staff" },
-                 new Role { RoleId = 3, RoleName = "Manager" }
-             );
+                new Role { RoleId = 1, RoleName = "Customer" },
+                new Role { RoleId = 2, RoleName = "Staff" },
+                new Role { RoleId = 3, RoleName = "Manager" }
+            );
 
             // SkinType relationships
             modelBuilder.Entity<SkinType>()
@@ -70,9 +65,22 @@ namespace SkinCare_Data
                 .WithMany()
                 .HasForeignKey(p => p.SkinTypeId)
                 .OnDelete(DeleteBehavior.Restrict)
-                .IsRequired(false); // Đảm bảo SkinTypeId không required
+                .IsRequired(false);
 
             // Category relationships
+            modelBuilder.Entity<Category>()
+                .HasMany(c => c.SubCategories) // Mối quan hệ 1-n với các category con
+                .WithOne(c => c.ParentCategory)
+                .HasForeignKey(c => c.ParentCategoryId)
+                .OnDelete(DeleteBehavior.Restrict); // Ngăn xóa category cha nếu có con
+
+            modelBuilder.Entity<Category>()
+                .HasOne(c => c.ParentCategory)
+                .WithMany(c => c.SubCategories)
+                .HasForeignKey(c => c.ParentCategoryId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .IsRequired(false); // ParentCategoryId có thể NULL
+
             modelBuilder.Entity<Category>()
                 .HasMany<Product>()
                 .WithOne(p => p.Category)
@@ -84,7 +92,7 @@ namespace SkinCare_Data
                 .WithMany()
                 .HasForeignKey(p => p.CategoryId)
                 .OnDelete(DeleteBehavior.Restrict)
-                .IsRequired(false); // Đảm bảo CategoryId không required
+                .IsRequired(false);
 
             // SkinCareRoutine relationships
             modelBuilder.Entity<SkinCareRoutine>()
@@ -98,19 +106,38 @@ namespace SkinCare_Data
                 .WithMany()
                 .HasForeignKey(p => p.RoutineId)
                 .OnDelete(DeleteBehavior.Restrict)
-                .IsRequired(false); // Đảm bảo RoutineId không required
+                .IsRequired(false);
 
-            // Product relationships (RatingsFeedback không được sử dụng trong DTO hiện tại, nên không cần cấu hình ở đây)
+            // Product and RatingsFeedback relationship
             modelBuilder.Entity<Product>()
-                .HasMany<RatingsFeedback>()
+                .HasMany(p => p.RatingsFeedbacks)
                 .WithOne(rf => rf.Product)
                 .HasForeignKey(rf => rf.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<RatingsFeedback>()
+                .HasOne(rf => rf.Product)
+                .WithMany(p => p.RatingsFeedbacks)
+                .HasForeignKey(rf => rf.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Order and OrderDetail relationship
+            modelBuilder.Entity<Order>()
+                .HasMany(o => o.OrderDetails)
+                .WithOne(od => od.Order)
+                .HasForeignKey(od => od.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Product)
+                .WithMany()
+                .HasForeignKey(od => od.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Promotions
             modelBuilder.Entity<Promotion>()
                 .Property(p => p.DiscountPercentage)
-                .HasColumnType("decimal(5, 2)"); 
+                .HasColumnType("decimal(5, 2)");
 
             // Quiz relationships
             modelBuilder.Entity<Quizz>()
@@ -142,5 +169,3 @@ namespace SkinCare_Data
         }
     }
 }
-    
-    

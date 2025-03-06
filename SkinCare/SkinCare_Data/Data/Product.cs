@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +32,9 @@ namespace SkinCare_Data.Data
         public float Price { get; set; }
         public int Quantity { get; set; }
         public string Image { get; set; }
-        public string RatingFeedback { get; set; }
         public DateTime CreateAt { get; set; }
+
+       
+        public virtual ICollection<RatingsFeedback> RatingsFeedbacks { get; set; }
     }
 }
