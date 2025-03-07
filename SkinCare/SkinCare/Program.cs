@@ -29,6 +29,11 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod()
     );
 });
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 
 builder.Services.AddAuthentication(options =>
 {
@@ -63,7 +68,7 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.AllowTrailingCommas = true;
         options.JsonSerializerOptions.ReadCommentHandling = JsonCommentHandling.Skip;
         options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull; // Xử lý null values
+        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull; 
     });
 
 // Configure Swagger/OpenAPI.
@@ -113,6 +118,8 @@ builder.Services.AddScoped<ISkinCareRoutineService, SkinCareRoutineService>();
 builder.Services.AddScoped<ISkinCareRoutineRepository, SkinCareRoutineRepository>();
 builder.Services.AddScoped<ISkinTypeService, SkinTypeService>(); 
 builder.Services.AddScoped<ISkinTypeRepository, SkinTypeRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
 var app = builder.Build();
