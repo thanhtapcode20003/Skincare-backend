@@ -1,2 +1,6 @@
 appsettings.json
 appsettings.Development.json
+# Bỏ qua thư mục obj/ và .vs/
+obj/
+.vs/
+bin/
