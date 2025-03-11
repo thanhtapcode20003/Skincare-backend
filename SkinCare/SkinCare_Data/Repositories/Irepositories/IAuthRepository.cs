@@ -8,6 +8,7 @@ namespace SkinCare_Data.IRepositories
         Task<User> GetUserByEmailAsync(string email);
         Task<Role> GetRoleByNameAsync(string roleName);
         Task<int> GetUserCountByRoleAsync(int roleId);
+        Task<User> GetUserByIdAsync(string userId);
         Task<bool> UserExistsAsync(string email);
         Task AddUserAsync(User user);
         Task AddRefreshTokenAsync(RefreshToken refreshToken);
