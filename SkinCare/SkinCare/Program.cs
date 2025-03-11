@@ -11,6 +11,7 @@ using SkinCare_Data.Repositories;
 using SkinCare_Service.IService;
 using SkinCare_Service;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure the database context (EF Core) using a connection string.
@@ -120,6 +121,8 @@ builder.Services.AddScoped<ISkinTypeService, SkinTypeService>();
 builder.Services.AddScoped<ISkinTypeRepository, SkinTypeRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 
 var app = builder.Build();

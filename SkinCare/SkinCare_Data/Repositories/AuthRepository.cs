@@ -38,6 +38,12 @@ namespace SkinCare_Data.Repositories
             return await _context.Users
                 .AnyAsync(u => u.Email == email);
         }
+        public async Task<User> GetUserByIdAsync(string userId)
+        {
+            return await _context.Users
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.UserId == userId);
+        }
 
         public async Task AddUserAsync(User user)
         {
