@@ -41,6 +41,23 @@ namespace SkinCare_Data.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<OrderDetail>> GetOrderDetailsByUserIdAsync(string userId)
+        {
+            return await _context.OrderDetails
+                .Include(od => od.Product)
+                .Include(od => od.Order)
+                .Where(od => od.Order.UserId == userId)
+                .ToListAsync();
+        }
+
+        public async Task<OrderDetail> GetOrderDetailByIdAsync(string orderDetailId)
+        {
+            return await _context.OrderDetails
+                .Include(od => od.Product)
+                .Include(od => od.Order)
+                .FirstOrDefaultAsync(od => od.OrderDetailId == orderDetailId);
+        }
+
         public async Task<int> GetOrderCountAsync()
         {
             return await _context.Orders.CountAsync();
@@ -65,6 +82,21 @@ namespace SkinCare_Data.Repositories
         {
             _context.Orders.Update(order);
             return Task.CompletedTask;
+        }
+
+        public Task UpdateOrderDetailAsync(OrderDetail orderDetail)
+        {
+            _context.OrderDetails.Update(orderDetail);
+            return Task.CompletedTask;
+        }
+
+        public async Task DeleteOrderDetailAsync(string orderDetailId)
+        {
+            var orderDetail = await _context.OrderDetails.FindAsync(orderDetailId);
+            if (orderDetail != null)
+            {
+                _context.OrderDetails.Remove(orderDetail);
+            }
         }
 
         public async Task SaveChangesAsync()
