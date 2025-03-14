@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using SkinCare_Data.DTO.Orderdetai;
 
 namespace SkinCare_Service
 {
@@ -30,7 +31,6 @@ namespace SkinCare_Service
 
         public async Task<Order> AddToCartAsync(string userId, AddToCartDto addToCartDto)
         {
-            // Giữ nguyên logic hiện tại
             try
             {
                 _logger.LogInformation("Adding product {ProductId} to cart for user {UserId}", addToCartDto.ProductId, userId);
@@ -160,6 +160,161 @@ namespace SkinCare_Service
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error retrieving orders for user {UserId}: {ErrorMessage}", userId, ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<List<OrderDetailResponseDto>> GetMyOrderDetailsAsync(string userId)
+        {
+            try
+            {
+                _logger.LogInformation("Retrieving order details for user {UserId}", userId);
+                var orderDetails = await _orderRepository.GetOrderDetailsByUserIdAsync(userId);
+                if (orderDetails == null || !orderDetails.Any())
+                {
+                    _logger.LogInformation("No order details found for user {UserId}", userId);
+                    return new List<OrderDetailResponseDto>();
+                }
+
+                var response = orderDetails.Select(od => new OrderDetailResponseDto
+                {
+                    OrderDetailId = od.OrderDetailId,
+                    OrderId = od.OrderId,
+                    ProductId = od.ProductId,
+                    ProductName = od.Product.ProductName,
+                    Price = od.Price,
+                    Quantity = od.Quantity
+                }).ToList();
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving order details for user {UserId}: {ErrorMessage}", userId, ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<OrderDetailResponseDto> UpdateOrderDetailQuantityAsync(string userId, string orderDetailId, int quantityChange)
+        {
+            try
+            {
+                _logger.LogInformation("Updating quantity for order detail {OrderDetailId} for user {UserId}", orderDetailId, userId);
+                var orderDetail = await _orderRepository.GetOrderDetailByIdAsync(orderDetailId);
+                if (orderDetail == null)
+                {
+                    throw new Exception("Order detail not found!");
+                }
+
+                var order = await _orderRepository.GetByIdAsync(orderDetail.OrderId);
+                if (order == null || order.UserId != userId)
+                {
+                    throw new Exception("Order not found or you are not authorized!");
+                }
+
+                var product = await _productRepository.GetByIdAsync(orderDetail.ProductId);
+                if (product == null)
+                {
+                    throw new Exception("Product not found!");
+                }
+
+                int newQuantity = orderDetail.Quantity + quantityChange;
+                if (newQuantity <= 0)
+                {
+                    throw new Exception("Quantity must be greater than 0!");
+                }
+
+                if (order.OrderStatus == "Cart" && quantityChange > 0 && product.Quantity < quantityChange)
+                {
+                    throw new Exception($"Insufficient stock for product {product.ProductName}. Available: {product.Quantity}");
+                }
+
+                orderDetail.Quantity = newQuantity;
+                if (order.OrderStatus == "Cart")
+                {
+                    if (quantityChange > 0)
+                    {
+                        product.Quantity -= quantityChange;
+                    }
+                    else if (quantityChange < 0)
+                    {
+                        product.Quantity += Math.Abs(quantityChange);
+                    }
+                    await _productRepository.UpdateAsync(product);
+                }
+
+                order.TotalAmount = (int)order.OrderDetails.Sum(od => od.Price * od.Quantity);
+                await _orderRepository.UpdateOrderDetailAsync(orderDetail);
+                await _orderRepository.UpdateOrderAsync(order);
+                await _orderRepository.SaveChangesAsync();
+
+                return new OrderDetailResponseDto
+                {
+                    OrderDetailId = orderDetail.OrderDetailId,
+                    OrderId = orderDetail.OrderId,
+                    ProductId = orderDetail.ProductId,
+                    ProductName = product.ProductName,
+                    Price = orderDetail.Price,
+                    Quantity = orderDetail.Quantity
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating quantity for order detail {OrderDetailId} for user {UserId}: {ErrorMessage}", orderDetailId, userId, ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<List<OrderDetailResponseDto>> DeleteOrderDetailAsync(string userId, string orderDetailId)
+        {
+            try
+            {
+                _logger.LogInformation("Deleting order detail {OrderDetailId} for user {UserId}", orderDetailId, userId);
+                var orderDetail = await _orderRepository.GetOrderDetailByIdAsync(orderDetailId);
+                if (orderDetail == null)
+                {
+                    throw new Exception("Order detail not found!");
+                }
+
+                var order = await _orderRepository.GetByIdAsync(orderDetail.OrderId);
+                if (order == null || order.UserId != userId)
+                {
+                    throw new Exception("Order not found or you are not authorized!");
+                }
+
+                var product = await _productRepository.GetByIdAsync(orderDetail.ProductId);
+                if (product == null)
+                {
+                    throw new Exception("Product not found!");
+                }
+
+                if (order.OrderStatus == "Cart")
+                {
+                    product.Quantity += orderDetail.Quantity;
+                    await _productRepository.UpdateAsync(product);
+                }
+
+                await _orderRepository.DeleteOrderDetailAsync(orderDetailId);
+                order.TotalAmount = (int)order.OrderDetails.Sum(od => od.Price * od.Quantity);
+                await _orderRepository.UpdateOrderAsync(order);
+                await _orderRepository.SaveChangesAsync();
+
+                var remainingOrderDetails = await _orderRepository.GetOrderDetailsByUserIdAsync(userId);
+                var response = remainingOrderDetails.Select(od => new OrderDetailResponseDto
+                {
+                    OrderDetailId = od.OrderDetailId,
+                    OrderId = od.OrderId,
+                    ProductId = od.ProductId,
+                    ProductName = od.Product.ProductName,
+                    Price = od.Price,
+                    Quantity = od.Quantity
+                }).ToList();
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting order detail {OrderDetailId} for user {UserId}: {ErrorMessage}", orderDetailId, userId, ex.Message);
                 throw;
             }
         }

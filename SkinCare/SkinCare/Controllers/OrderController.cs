@@ -7,6 +7,7 @@ using SkinCare_Data.DTO.Order;
 using SkinCare_Data.IRepositories;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using SkinCare_Data.DTO.Orderdetai;
 
 namespace SkinCare.Controllers
 {
@@ -57,7 +58,7 @@ namespace SkinCare.Controllers
 
         [HttpGet("my-orders")]
         [Authorize(Roles = "Customer")]
-        public async Task<ActionResult<List<OrderSummaryDto>>> GetMyOrders() // Cập nhật kiểu trả về
+        public async Task<ActionResult<List<OrderSummaryDto>>> GetMyOrders()
         {
             try
             {
@@ -84,5 +85,101 @@ namespace SkinCare.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("my-order-details")]
+        [Authorize(Roles = "Customer")]
+        public async Task<ActionResult<List<OrderDetailResponseDto>>> GetMyOrderDetails()
+        {
+            try
+            {
+                _logger.LogInformation("Retrieving order details for user");
+
+                var userId = User.FindFirst("UserId")?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized(new { message = "User not authenticated" });
+                }
+
+                var user = await _authRepository.GetUserByIdAsync(userId);
+                if (user == null)
+                {
+                    return BadRequest(new { message = "User not found" });
+                }
+
+                var orderDetails = await _orderService.GetMyOrderDetailsAsync(userId);
+                return Ok(orderDetails);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving order details: {ErrorMessage}", ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPut("{orderDetailId}/quantity")]
+        [Authorize(Roles = "Customer")]
+        public async Task<ActionResult<OrderDetailResponseDto>> UpdateOrderDetailQuantity(string orderDetailId, [FromBody] UpdateQuantityDto updateQuantityDto)
+        {
+            try
+            {
+                _logger.LogInformation("Updating quantity for order detail {OrderDetailId}", orderDetailId);
+
+                var userId = User.FindFirst("UserId")?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized(new { message = "User not authenticated" });
+                }
+
+                var user = await _authRepository.GetUserByIdAsync(userId);
+                if (user == null)
+                {
+                    return BadRequest(new { message = "User not found" });
+                }
+
+                var updatedOrderDetail = await _orderService.UpdateOrderDetailQuantityAsync(userId, orderDetailId, updateQuantityDto.QuantityChange);
+                return Ok(updatedOrderDetail);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating quantity for order detail {OrderDetailId}: {ErrorMessage}", orderDetailId, ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpDelete("{orderDetailId}")]
+        [Authorize(Roles = "Customer")]
+        public async Task<ActionResult<List<OrderDetailResponseDto>>> DeleteOrderDetail(string orderDetailId)
+        {
+            try
+            {
+                _logger.LogInformation("Deleting order detail {OrderDetailId}", orderDetailId);
+
+                var userId = User.FindFirst("UserId")?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized(new { message = "User not authenticated" });
+                }
+
+                var user = await _authRepository.GetUserByIdAsync(userId);
+                if (user == null)
+                {
+                    return BadRequest(new { message = "User not found" });
+                }
+
+                var remainingOrderDetails = await _orderService.DeleteOrderDetailAsync(userId, orderDetailId);
+                return Ok(remainingOrderDetails);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting order detail {OrderDetailId}: {ErrorMessage}", orderDetailId, ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+    }
+
+   
+    public class UpdateQuantityDto
+    {
+        public int QuantityChange { get; set; } 
     }
 }
