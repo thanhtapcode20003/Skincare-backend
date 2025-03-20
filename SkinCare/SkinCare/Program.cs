@@ -10,6 +10,8 @@ using SkinCare_Data.IRepositories;
 using SkinCare_Data.Repositories;
 using SkinCare_Service.IService;
 using SkinCare_Service;
+using SkinCare_Service.Service.Iservice;
+using SkinCare_Service.Service;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -123,7 +125,10 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
-
+builder.Services.AddScoped<IDashboardRepository, DashboardRepository>();
+builder.Services.AddScoped<IDashboardService, DashboardService>();
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<IReportService, ReportService>();
 
 var app = builder.Build();
 
