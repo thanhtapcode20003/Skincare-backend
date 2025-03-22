@@ -1,4 +1,4 @@
-﻿// IOrderService.cs
+﻿// SkinCare_Service/IService/IOrderService.cs
 using SkinCare_Data.Data;
 using SkinCare_Data.DTO.Order;
 using SkinCare_Data.DTO.Orderdetai;
@@ -11,8 +11,10 @@ namespace SkinCare_Service.IService
     {
         Task<Order> AddToCartAsync(string userId, AddToCartDto addToCartDto);
         Task<List<OrderSummaryDto>> GetMyOrdersAsync(string userId);
-        Task<List<OrderDetailResponseDto>> GetMyOrderDetailsAsync(string userId); // Thêm để xem OrderDetail
-        Task<OrderDetailResponseDto> UpdateOrderDetailQuantityAsync(string userId, string orderDetailId, int quantityChange); // Thêm để thêm/bớt số lượng
-        Task<List<OrderDetailResponseDto>> DeleteOrderDetailAsync(string userId, string orderDetailId); // Thêm để xóa OrderDetail
+        Task<List<OrderDetailResponseDto>> GetMyOrderDetailsAsync(string userId);
+        Task<OrderDetailResponseDto> UpdateOrderDetailQuantityAsync(string userId, string orderDetailId, int quantityChange);
+        Task<List<OrderDetailResponseDto>> DeleteOrderDetailAsync(string userId, string orderDetailId);
+        Task<string> CreateVNPayPaymentUrlAsync(string userId, string orderId, string ipAddress); // Thêm để tạo URL thanh toán
+        Task<bool> HandleVNPayCallbackAsync(Dictionary<string, string> vnpayData); // Thêm để xử lý callback
     }
 }

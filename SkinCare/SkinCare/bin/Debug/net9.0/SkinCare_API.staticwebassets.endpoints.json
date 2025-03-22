@@ -1,5 +1,602 @@
 {
   "Version": 1,
   "ManifestType": "Build",
-  "Endpoints": []
+  "Endpoints": [
+    {
+      "Route": "payment-failed.html",
+      "AssetFile": "payment-failed.html.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005952380952"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "167"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zcIi6WjjmJcb6B6Smboqx/5y6js4pV/jpLloIbQoA8E=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y="
+        }
+      ]
+    },
+    {
+      "Route": "payment-failed.html",
+      "AssetFile": "payment-failed.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "218"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y="
+        }
+      ]
+    },
+    {
+      "Route": "payment-failed.html.gz",
+      "AssetFile": "payment-failed.html.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "167"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zcIi6WjjmJcb6B6Smboqx/5y6js4pV/jpLloIbQoA8E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-zcIi6WjjmJcb6B6Smboqx/5y6js4pV/jpLloIbQoA8E="
+        }
+      ]
+    },
+    {
+      "Route": "payment-failed.mu9lc5kp0z.html",
+      "AssetFile": "payment-failed.html.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005952380952"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "167"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zcIi6WjjmJcb6B6Smboqx/5y6js4pV/jpLloIbQoA8E=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mu9lc5kp0z"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y="
+        },
+        {
+          "Name": "label",
+          "Value": "payment-failed.html"
+        }
+      ]
+    },
+    {
+      "Route": "payment-failed.mu9lc5kp0z.html",
+      "AssetFile": "payment-failed.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "218"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mu9lc5kp0z"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HmWlTQVJhS9gCR+4po1ncafkalMWF9cyXoUMWKnBk4Y="
+        },
+        {
+          "Name": "label",
+          "Value": "payment-failed.html"
+        }
+      ]
+    },
+    {
+      "Route": "payment-failed.mu9lc5kp0z.html.gz",
+      "AssetFile": "payment-failed.html.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "167"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zcIi6WjjmJcb6B6Smboqx/5y6js4pV/jpLloIbQoA8E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "mu9lc5kp0z"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zcIi6WjjmJcb6B6Smboqx/5y6js4pV/jpLloIbQoA8E="
+        },
+        {
+          "Name": "label",
+          "Value": "payment-failed.html.gz"
+        }
+      ]
+    },
+    {
+      "Route": "payment-success.fpkhsgmya9.html",
+      "AssetFile": "payment-success.html.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.006535947712"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZNPsQq+CkUFeS19+7DmFXkp11v8Cy3uXGqCgem+DIBo=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fpkhsgmya9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o="
+        },
+        {
+          "Name": "label",
+          "Value": "payment-success.html"
+        }
+      ]
+    },
+    {
+      "Route": "payment-success.fpkhsgmya9.html",
+      "AssetFile": "payment-success.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "213"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fpkhsgmya9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o="
+        },
+        {
+          "Name": "label",
+          "Value": "payment-success.html"
+        }
+      ]
+    },
+    {
+      "Route": "payment-success.fpkhsgmya9.html.gz",
+      "AssetFile": "payment-success.html.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZNPsQq+CkUFeS19+7DmFXkp11v8Cy3uXGqCgem+DIBo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fpkhsgmya9"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZNPsQq+CkUFeS19+7DmFXkp11v8Cy3uXGqCgem+DIBo="
+        },
+        {
+          "Name": "label",
+          "Value": "payment-success.html.gz"
+        }
+      ]
+    },
+    {
+      "Route": "payment-success.html",
+      "AssetFile": "payment-success.html.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.006535947712"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZNPsQq+CkUFeS19+7DmFXkp11v8Cy3uXGqCgem+DIBo=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o="
+        }
+      ]
+    },
+    {
+      "Route": "payment-success.html",
+      "AssetFile": "payment-success.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "213"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7cBdi5AAqjzf22SY4mF8PMXMqrw0JlQVTd17pJPo29o="
+        }
+      ]
+    },
+    {
+      "Route": "payment-success.html.gz",
+      "AssetFile": "payment-success.html.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "152"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZNPsQq+CkUFeS19+7DmFXkp11v8Cy3uXGqCgem+DIBo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 21 Mar 2025 15:06:07 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZNPsQq+CkUFeS19+7DmFXkp11v8Cy3uXGqCgem+DIBo="
+        }
+      ]
+    }
+  ]
 }

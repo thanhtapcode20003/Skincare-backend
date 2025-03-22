@@ -1,4 +1,4 @@
-﻿// OrderController.cs
+﻿// SkinCare_API/Controllers/OrderController.cs
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SkinCare_Service.IService;
@@ -175,11 +175,68 @@ namespace SkinCare.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
-    }
 
-   
-    public class UpdateQuantityDto
-    {
-        public int QuantityChange { get; set; } 
+        [HttpPost("{orderId}/create-vnpay-payment")]
+        [Authorize(Roles = "Customer")]
+        public async Task<ActionResult<string>> CreateVNPayPayment(string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Creating VNPay Sandbox payment for order {OrderId}", orderId);
+
+                var userId = User.FindFirst("UserId")?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized(new { message = "User not authenticated" });
+                }
+
+                var user = await _authRepository.GetUserByIdAsync(userId);
+                if (user == null)
+                {
+                    return BadRequest(new { message = "User not found" });
+                }
+
+                string ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                var paymentUrl = await _orderService.CreateVNPayPaymentUrlAsync(userId, orderId, ipAddress);
+                return Ok(new { paymentUrl });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating VNPay Sandbox payment for order {OrderId}: {ErrorMessage}", orderId, ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        // Thêm endpoint để xử lý callback từ VNPay
+        [HttpGet("vnpay-callback")]
+        public async Task<ActionResult> VNPayCallback()
+        {
+            try
+            {
+                _logger.LogInformation("Received VNPay Sandbox callback");
+
+                var vnpayData = Request.Query.ToDictionary(k => k.Key, k => k.Value.ToString());
+                bool isSuccess = await _orderService.HandleVNPayCallbackAsync(vnpayData);
+
+                if (isSuccess)
+                {
+                    return Redirect("/payment-success.html");
+                }
+                else
+                {
+                    return Redirect("/payment-failed.html");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling VNPay Sandbox callback: {ErrorMessage}", ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        public class UpdateQuantityDto
+        {
+            public int QuantityChange { get; set; }
+        }
     }
 }
