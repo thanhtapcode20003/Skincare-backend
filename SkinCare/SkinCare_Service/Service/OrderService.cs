@@ -318,5 +318,76 @@ namespace SkinCare_Service
                 throw;
             }
         }
+        public async Task<List<OrderStaffDTO>> GetAllOrdersForStaffAsync()
+        {
+            try
+            {
+                _logger.LogInformation("Fetching all orders for staff.");
+
+                var orders = await _orderRepository.GetAllOrdersAsync();
+
+                var orderDtos = orders.Select(o => new OrderStaffDTO
+                {
+                    OrderId = o.OrderId,
+                    UserId = o.UserId,
+                    OrderStatus = o.OrderStatus,
+                    TotalAmount = o.TotalAmount,
+                    CreateAt = o.CreateAt,
+                    OrderDetails = o.OrderDetails.Select(od => new OrderDetailDTO
+                    {
+                        ProductId = od.ProductId,
+                        ProductName = od.Product.ProductName,
+                        Price = od.Price,
+                        Quantity = od.Quantity
+                    }).ToList()
+                }).ToList();
+
+                return orderDtos;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching orders for staff.");
+                throw;
+            }
+        }
+        public async Task<OrderStaffDTO> GetOrderDetailsForStaffAsync(string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Retrieving order details for Order ID: {OrderId}", orderId);
+
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                if (order == null)
+                {
+                    _logger.LogWarning("Order with ID {OrderId} not found", orderId);
+                    return null;
+                }
+
+                // Chuyển đổi sang DTO để hiển thị cho nhân viên
+                var orderDto = new OrderStaffDTO
+                {
+                    OrderId = order.OrderId,
+                    UserId = order.UserId,
+                    OrderStatus = order.OrderStatus,
+                    TotalAmount = order.TotalAmount,
+                    CreateAt = order.CreateAt,
+                    OrderDetails = order.OrderDetails.Select(od => new OrderDetailDTO
+                    {
+                        OrderDetailId = od.OrderDetailId,
+                        ProductId = od.ProductId,
+                        Price = od.Price,
+                        Quantity = od.Quantity
+                    }).ToList()
+                };
+
+                return orderDto;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving order details for Order ID: {OrderId}", orderId);
+                throw;
+            }
+        }
+
     }
 }

@@ -98,6 +98,13 @@ namespace SkinCare_Data.Repositories
                 _context.OrderDetails.Remove(orderDetail);
             }
         }
+        public async Task<List<Order>> GetAllOrdersAsync()
+        {
+            return await _context.Orders
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .ToListAsync();
+        }
 
         public async Task SaveChangesAsync()
         {

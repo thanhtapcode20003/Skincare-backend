@@ -175,9 +175,48 @@ namespace SkinCare.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [HttpGet("staff/orders")]
+        [Authorize(Roles = "Staff")]
+        public async Task<ActionResult<List<OrderStaffDTO>>> GetAllOrdersForStaff()
+        {
+            try
+            {
+                _logger.LogInformation("Staff is retrieving all orders.");
+
+                var orders = await _orderService.GetAllOrdersForStaffAsync();
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving orders: {ErrorMessage}", ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+        [HttpGet("staff/order-details/{orderId}")]
+        [Authorize(Roles = "Staff")]
+        public async Task<ActionResult<OrderStaffDTO>> GetOrderDetailsForStaff(string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Staff is retrieving details for order: {OrderId}", orderId);
+
+                var order = await _orderService.GetOrderDetailsForStaffAsync(orderId);
+                if (order == null)
+                {
+                    return NotFound(new { message = "Order not found." });
+                }
+
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving order details for {OrderId}: {ErrorMessage}", orderId, ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 
-   
+
     public class UpdateQuantityDto
     {
         public int QuantityChange { get; set; } 

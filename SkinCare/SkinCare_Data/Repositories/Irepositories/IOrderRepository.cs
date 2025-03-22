@@ -19,6 +19,7 @@ namespace SkinCare_Data.IRepositories
         Task UpdateOrderAsync(Order order);
         Task UpdateOrderDetailAsync(OrderDetail orderDetail); // Thêm để cập nhật OrderDetail
         Task DeleteOrderDetailAsync(string orderDetailId); // Thêm để xóa OrderDetail
+        Task<List<Order>> GetAllOrdersAsync();
         Task SaveChangesAsync();
         SkinCare_DBContext GetContext();
     }
