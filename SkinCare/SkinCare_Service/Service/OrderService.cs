@@ -1,4 +1,4 @@
-﻿// OrderService.cs
+﻿// SkinCare_Service/OrderService.cs
 using Microsoft.Extensions.Logging;
 using SkinCare_Data.Data;
 using SkinCare_Data.IRepositories;
@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SkinCare_Data.DTO.Orderdetai;
+using SkinCare.Utilities; // Thêm namespace cho VNPayHelper
 
 namespace SkinCare_Service
 {
@@ -18,15 +19,18 @@ namespace SkinCare_Service
         private readonly IOrderRepository _orderRepository;
         private readonly IProductRepository _productRepository;
         private readonly ILogger<OrderService> _logger;
+        private readonly VNPayHelper _vnpayHelper; // Thêm VNPayHelper
 
         public OrderService(
             IOrderRepository orderRepository,
             IProductRepository productRepository,
-            ILogger<OrderService> logger)
+            ILogger<OrderService> logger,
+            VNPayHelper vnpayHelper) // Thêm vào constructor
         {
             _orderRepository = orderRepository;
             _productRepository = productRepository;
             _logger = logger;
+            _vnpayHelper = vnpayHelper;
         }
 
         public async Task<Order> AddToCartAsync(string userId, AddToCartDto addToCartDto)
@@ -315,6 +319,79 @@ namespace SkinCare_Service
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error deleting order detail {OrderDetailId} for user {UserId}: {ErrorMessage}", orderDetailId, userId, ex.Message);
+                throw;
+            }
+        }
+
+        // Thêm phương thức tạo URL thanh toán VNPay
+        public async Task<string> CreateVNPayPaymentUrlAsync(string userId, string orderId, string ipAddress)
+        {
+            try
+            {
+                _logger.LogInformation("Creating VNPay Sandbox payment URL for order {OrderId} for user {UserId}", orderId, userId);
+
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                if (order == null || order.UserId != userId)
+                {
+                    throw new Exception("Order not found or you are not authorized!");
+                }
+
+                if (order.OrderStatus != "Cart")
+                {
+                    throw new Exception("Order must be in Cart status to proceed with payment!");
+                }
+
+                string paymentUrl = _vnpayHelper.CreatePaymentUrl(orderId, order.TotalAmount, ipAddress);
+                return paymentUrl;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating VNPay Sandbox payment URL for order {OrderId}: {ErrorMessage}", orderId, ex.Message);
+                throw;
+            }
+        }
+
+        // Thêm phương thức xử lý callback từ VNPay
+        public async Task<bool> HandleVNPayCallbackAsync(Dictionary<string, string> vnpayData)
+        {
+            try
+            {
+                _logger.LogInformation("Handling VNPay Sandbox callback for transaction {TransactionId}", vnpayData["vnp_TxnRef"]);
+
+                bool isValid = _vnpayHelper.VerifyCallback(vnpayData);
+                if (!isValid)
+                {
+                    _logger.LogWarning("Invalid VNPay Sandbox callback signature for transaction {TransactionId}", vnpayData["vnp_TxnRef"]);
+                    return false;
+                }
+
+                string orderId = vnpayData["vnp_TxnRef"];
+                string responseCode = vnpayData["vnp_ResponseCode"];
+                string transactionStatus = vnpayData["vnp_TransactionStatus"];
+
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                if (order == null)
+                {
+                    throw new Exception("Order not found!");
+                }
+
+                if (responseCode == "00" && transactionStatus == "00") // Thanh toán thành công
+                {
+                    order.OrderStatus = "Confirmed";
+                    await _orderRepository.UpdateOrderAsync(order);
+                    await _orderRepository.SaveChangesAsync();
+                    _logger.LogInformation("Sandbox payment successful for order {OrderId}", orderId);
+                    return true;
+                }
+                else
+                {
+                    _logger.LogWarning("Sandbox payment failed for order {OrderId}. ResponseCode: {ResponseCode}", orderId, responseCode);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error handling VNPay Sandbox callback: {ErrorMessage}", ex.Message);
                 throw;
             }
         }

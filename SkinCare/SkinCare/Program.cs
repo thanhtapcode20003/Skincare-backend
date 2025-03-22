@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿// SkinCare_API/Program.cs
+using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@ using SkinCare_Data.IRepositories;
 using SkinCare_Data.Repositories;
 using SkinCare_Service.IService;
 using SkinCare_Service;
-
+using SkinCare.Utilities; // Thêm namespace cho VNPayHelper
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod()
     );
 });
+
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -69,7 +71,7 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.AllowTrailingCommas = true;
         options.JsonSerializerOptions.ReadCommentHandling = JsonCommentHandling.Skip;
         options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull; 
+        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
     });
 
 // Configure Swagger/OpenAPI.
@@ -111,19 +113,19 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
-builder.Services.AddScoped<IUserService, UserService>(); 
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IProductService, ProductService>(); 
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISkinCareRoutineService, SkinCareRoutineService>();
 builder.Services.AddScoped<ISkinCareRoutineRepository, SkinCareRoutineRepository>();
-builder.Services.AddScoped<ISkinTypeService, SkinTypeService>(); 
+builder.Services.AddScoped<ISkinTypeService, SkinTypeService>();
 builder.Services.AddScoped<ISkinTypeRepository, SkinTypeRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
-
+builder.Services.AddSingleton<VNPayHelper>(); // Đăng ký VNPayHelper
 
 var app = builder.Build();
 
@@ -143,6 +145,9 @@ app.UseHttpsRedirection();
 // Enable authentication and authorization
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Enable serving static files (for payment-success.html, payment-failed.html)
+app.UseStaticFiles();
 
 // Map controllers to routes
 app.MapControllers();
