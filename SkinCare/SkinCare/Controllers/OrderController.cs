@@ -215,22 +215,27 @@ namespace SkinCare.Controllers
             {
                 _logger.LogInformation("Received VNPay Sandbox callback");
 
-                var vnpayData = Request.Query.ToDictionary(k => k.Key, k => k.Value.ToString());
+                // Extract query parameters from the VNPAY callback
+                var vnpayData = Request.Query.ToDictionary(k => k.Key, v => v.Value.ToString());
                 bool isSuccess = await _orderService.HandleVNPayCallbackAsync(vnpayData);
 
-                if (isSuccess)
-                {
-                    return Redirect("/payment-success.html");
-                }
-                else
-                {
-                    return Redirect("/payment-failed.html");
-                }
+                // Extract orderId and amount from vnpayData
+                string orderId = vnpayData["vnp_TxnRef"];
+                decimal amount = decimal.Parse(vnpayData["vnp_Amount"]) / 100; // Amount in VND (VNPAY sends it as amount * 100)
+
+                // Construct the redirect URL for the frontend
+                string status = isSuccess ? "success" : "failed";
+                string redirectUrl = $"http://localhost:5173/payment/result?status={status}&amount={amount}&orderId={orderId}";
+
+                return Redirect(redirectUrl);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error handling VNPay Sandbox callback: {ErrorMessage}", ex.Message);
-                return BadRequest(new { message = ex.Message });
+
+                // On error, redirect to the frontend with a failed status
+                string redirectUrl = $"http://localhost:5173/payment/result?status=failed&amount=0&orderId=unknown";
+                return Redirect(redirectUrl);
             }
         }
 

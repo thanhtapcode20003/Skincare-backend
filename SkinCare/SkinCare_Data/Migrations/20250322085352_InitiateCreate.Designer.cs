@@ -12,7 +12,7 @@ using SkinCare_Data;
 namespace SkinCare_Data.Migrations
 {
     [DbContext(typeof(SkinCare_DBContext))]
-    [Migration("20250322072855_InitiateCreate")]
+    [Migration("20250322085352_InitiateCreate")]
     partial class InitiateCreate
     {
         /// <inheritdoc />
