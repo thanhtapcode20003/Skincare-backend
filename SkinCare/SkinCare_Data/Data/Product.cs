@@ -29,7 +29,9 @@ namespace SkinCare_Data.Data
         public string ProductName { get; set; }
 
         public string Description { get; set; }
-        public float Price { get; set; }
+
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal Price { get; set; }
         public int Quantity { get; set; }
         public string Image { get; set; }
         public DateTime CreateAt { get; set; }

@@ -12,7 +12,7 @@ namespace SkinCare_Data.DTO.Orderdetai
         public string OrderId { get; set; }
         public string ProductId { get; set; }
         public string ProductName { get; set; }
-        public float Price { get; set; }
+        public decimal Price { get; set; }
         public int Quantity { get; set; }
     }
 

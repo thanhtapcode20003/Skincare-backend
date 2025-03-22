@@ -16,7 +16,7 @@ namespace SkinCare_Data.DTO.Product
         public string Description { get; set; }
 
         [Required]
-        public float Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         public int Quantity { get; set; }
