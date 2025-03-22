@@ -18,7 +18,7 @@ namespace SkinCare_Data.Data
         public User User { get; set; }
 
         public string OrderStatus { get; set; }
-        public int TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         public DateTime CreateAt { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; }

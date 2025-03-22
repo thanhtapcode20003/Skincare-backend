@@ -29,6 +29,21 @@ namespace SkinCare_Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // Cấu hình cho TotalAmount trong Order
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalAmount)
+                .HasColumnType("decimal(18,2)");
+
+            // Cấu hình cho Price trong Product
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasColumnType("decimal(18,2)");
+
+            // Cấu hình cho Price trong OrderDetail
+            modelBuilder.Entity<OrderDetail>()
+                .Property(od => od.Price)
+                .HasColumnType("decimal(18,2)");
+
             // User relationships
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Orders)
@@ -69,17 +84,17 @@ namespace SkinCare_Data
 
             // Category relationships
             modelBuilder.Entity<Category>()
-                .HasMany(c => c.SubCategories) // Mối quan hệ 1-n với các category con
+                .HasMany(c => c.SubCategories)
                 .WithOne(c => c.ParentCategory)
                 .HasForeignKey(c => c.ParentCategoryId)
-                .OnDelete(DeleteBehavior.Restrict); // Ngăn xóa category cha nếu có con
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Category>()
                 .HasOne(c => c.ParentCategory)
                 .WithMany(c => c.SubCategories)
                 .HasForeignKey(c => c.ParentCategoryId)
                 .OnDelete(DeleteBehavior.Restrict)
-                .IsRequired(false); // ParentCategoryId có thể NULL
+                .IsRequired(false);
 
             modelBuilder.Entity<Category>()
                 .HasMany<Product>()

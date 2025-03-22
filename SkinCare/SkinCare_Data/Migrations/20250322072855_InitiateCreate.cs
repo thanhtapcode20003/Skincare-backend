@@ -119,7 +119,7 @@ namespace SkinCare_Data.Migrations
                     RoutineId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<float>(type: "real", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -213,7 +213,7 @@ namespace SkinCare_Data.Migrations
                     OrderId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TotalAmount = table.Column<int>(type: "int", nullable: false),
+                    TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -315,7 +315,7 @@ namespace SkinCare_Data.Migrations
                     OrderDetailId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     OrderId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProductId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Price = table.Column<float>(type: "real", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

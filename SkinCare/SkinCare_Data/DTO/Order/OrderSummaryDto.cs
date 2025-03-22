@@ -10,7 +10,7 @@ namespace SkinCare_Data.DTO.Order
     {
         public string OrderId { get; set; }
         public string OrderStatus { get; set; }
-        public int TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         public DateTime CreateAt { get; set; }
     }
 }
