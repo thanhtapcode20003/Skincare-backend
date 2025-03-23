@@ -259,6 +259,7 @@ namespace SkinCare.Controllers
                 string status = isSuccess ? "success" : "failed";
                 string redirectUrl = $"http://localhost:5173/payment/result?status={status}&amount={amount}&orderId={orderId}";
 
+                await Task.Delay(5000); // 5 seconds delay
                 return Redirect(redirectUrl);
             }
             catch (Exception ex)
