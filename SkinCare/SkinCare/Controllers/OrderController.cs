@@ -249,15 +249,21 @@ namespace SkinCare.Controllers
 
                 // Extract query parameters from the VNPAY callback
                 var vnpayData = Request.Query.ToDictionary(k => k.Key, v => v.Value.ToString());
+
+                // Log all VNPAY parameters for debugging
+                foreach (var param in vnpayData)
+                {
+                    _logger.LogInformation("VNPAY Param: {Key} = {Value}", param.Key, param.Value);
+                }
+
                 bool isSuccess = await _orderService.HandleVNPayCallbackAsync(vnpayData);
 
-                // Extract orderId and amount from vnpayData
-                string orderId = vnpayData["vnp_TxnRef"];
-                decimal amount = decimal.Parse(vnpayData["vnp_Amount"]) / 100; // Amount in VND (VNPAY sends it as amount * 100)
+                // IMPORTANT: Forward all original VNPAY parameters exactly as received
+                // This ensures the frontend gets the parameters it expects (vnp_ResponseCode, vnp_Amount, vnp_TxnRef)
+                string queryString = string.Join("&", Request.Query.Select(x => $"{x.Key}={x.Value}"));
+                string redirectUrl = $"http://localhost:5173/payment/result?{queryString}";
 
-                // Construct the redirect URL for the frontend
-                string status = isSuccess ? "success" : "failed";
-                string redirectUrl = $"http://localhost:5173/payment/result?status={status}&amount={amount}&orderId={orderId}";
+                _logger.LogInformation("Redirecting to: {RedirectUrl}", redirectUrl);
 
                 await Task.Delay(5000); // 5 seconds delay
                 return Redirect(redirectUrl);
@@ -267,7 +273,7 @@ namespace SkinCare.Controllers
                 _logger.LogError(ex, "Error handling VNPay Sandbox callback: {ErrorMessage}", ex.Message);
 
                 // On error, redirect to the frontend with a failed status
-                string redirectUrl = $"http://localhost:5173/payment/result?status=failed&amount=0&orderId=unknown";
+                string redirectUrl = $"http://localhost:5173/payment/result?vnp_ResponseCode=99&vnp_Amount=0&vnp_TxnRef=error";
                 return Redirect(redirectUrl);
             }
         }
