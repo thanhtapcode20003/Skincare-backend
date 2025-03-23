@@ -14,6 +14,7 @@ namespace SkinCare_Service.IService
         Task<List<OrderDetailResponseDto>> GetMyOrderDetailsAsync(string userId);
         Task<OrderDetailResponseDto> UpdateOrderDetailQuantityAsync(string userId, string orderDetailId, int quantityChange);
         Task<List<OrderDetailResponseDto>> DeleteOrderDetailAsync(string userId, string orderDetailId);
+        Task HandleCODPaymentAsync(string userId, string orderId);
         Task<string> CreateVNPayPaymentUrlAsync(string userId, string orderId, string ipAddress); // Thêm để tạo URL thanh toán
         Task<bool> HandleVNPayCallbackAsync(Dictionary<string, string> vnpayData); // Thêm để xử lý callback
     }

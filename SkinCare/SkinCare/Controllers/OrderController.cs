@@ -8,6 +8,7 @@ using SkinCare_Data.IRepositories;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using SkinCare_Data.DTO.Orderdetai;
+using SkinCare_Data.Repositories;
 
 namespace SkinCare.Controllers
 {
@@ -176,6 +177,36 @@ namespace SkinCare.Controllers
             }
         }
 
+        [HttpPost("{orderId}/create-cod-payment")]
+        [Authorize(Roles = "Customer")]
+        public async Task<ActionResult> CreateCODPayment(string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Processing COD payment for order {OrderId}", orderId);
+
+                var userId = User.FindFirst("UserId")?.Value;
+                if (string.IsNullOrEmpty(userId))
+                {
+                    return Unauthorized(new { message = "User not authenticated" });
+                }
+
+                var user = await _authRepository.GetUserByIdAsync(userId);
+                if (user == null)
+                {
+                    return BadRequest(new { message = "User not found" });
+                }
+
+                await _orderService.HandleCODPaymentAsync(userId, orderId);
+                return Ok(new { message = "COD payment processed successfully" });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing COD payment for order {OrderId}: {ErrorMessage}", orderId, ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
         [HttpPost("{orderId}/create-vnpay-payment")]
         [Authorize(Roles = "Customer")]
         public async Task<ActionResult<string>> CreateVNPayPayment(string orderId)
@@ -206,6 +237,7 @@ namespace SkinCare.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
 
         // Thêm endpoint để xử lý callback từ VNPay
         [HttpGet("vnpay-callback")]

@@ -29,6 +29,7 @@ builder.Services.AddCors(options =>
                 .WithOrigins("http://localhost:5173") // Add your React app's URL
                 .AllowAnyHeader()
                 .AllowAnyMethod()
+                .AllowCredentials()
     );
 });
 

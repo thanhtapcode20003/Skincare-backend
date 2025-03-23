@@ -323,6 +323,50 @@ namespace SkinCare_Service
             }
         }
 
+        // Xử lí thanh toán COD
+        public async Task HandleCODPaymentAsync(string userId, string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Processing COD payment for order {OrderId} for user {UserId}", orderId, userId);
+
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                if (order == null || order.UserId != userId)
+                {
+                    throw new Exception("Order not found or you are not authorized!");
+                }
+
+                if (order.OrderStatus != "Cart")
+                {
+                    throw new Exception("Order must be in Cart status to proceed with COD payment!");
+                }
+
+                // Update order status to "Confirmed" (or another status like "Pending" depending on your business logic)
+                order.OrderStatus = "Confirmed";
+
+                // Clear the OrderDetails (remove all items from the cart)
+                var orderDetails = order.OrderDetails.ToList();
+                foreach (var orderDetail in orderDetails)
+                {
+                    await _orderRepository.DeleteOrderDetailAsync(orderDetail.OrderDetailId);
+                }
+                order.OrderDetails.Clear(); // Clear the in-memory list
+
+                // Update the total amount to reflect the cleared cart
+                order.TotalAmount = 0;
+
+                await _orderRepository.UpdateOrderAsync(order);
+                await _orderRepository.SaveChangesAsync();
+
+                _logger.LogInformation("COD payment processed successfully for order {OrderId}", orderId);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error processing COD payment for order {OrderId}: {ErrorMessage}", orderId, ex.Message);
+                throw;
+            }
+        }
+
         // Thêm phương thức tạo URL thanh toán VNPay
         public async Task<string> CreateVNPayPaymentUrlAsync(string userId, string orderId, string ipAddress)
         {
@@ -378,6 +422,18 @@ namespace SkinCare_Service
                 if (responseCode == "00" && transactionStatus == "00") // Thanh toán thành công
                 {
                     order.OrderStatus = "Confirmed";
+
+                    // Clear the OrderDetails (remove all items from the cart)
+                    var orderDetails = order.OrderDetails.ToList();
+                    foreach (var orderDetail in orderDetails)
+                    {
+                        await _orderRepository.DeleteOrderDetailAsync(orderDetail.OrderDetailId);
+                    }
+                    order.OrderDetails.Clear(); // Clear the in-memory list
+
+                    // Update the total amount to reflect the cleared cart
+                    order.TotalAmount = 0;
+
                     await _orderRepository.UpdateOrderAsync(order);
                     await _orderRepository.SaveChangesAsync();
                     _logger.LogInformation("Sandbox payment successful for order {OrderId}", orderId);
