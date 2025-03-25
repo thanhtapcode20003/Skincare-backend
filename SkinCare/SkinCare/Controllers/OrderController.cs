@@ -214,6 +214,57 @@ namespace SkinCare.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+        [HttpPost("staff/create-order")]
+        [Authorize(Roles = "Staff")]
+        public async Task<ActionResult<OrderStaffDTO>> CreateOrderForStaff([FromBody] CreateOrderForStaffDTO createOrderDto)
+        {
+            try
+            {
+                _logger.LogInformation("Staff is creating a new order.");
+
+                var newOrder = await _orderService.CreateOrderForStaffAsync(createOrderDto);
+                return Ok(newOrder);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating order: {ErrorMessage}", ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+        [HttpPut("staff/update-order-status")]
+        [Authorize(Roles = "Staff")]
+        public async Task<ActionResult<OrderStaffDTO>> UpdateOrderStatus([FromBody] UpdateOrderStatusDTO updateOrderDto)
+        {
+            try
+            {
+                _logger.LogInformation("Staff is updating order status.");
+
+                var updatedOrder = await _orderService.UpdateOrderStatusAsync(updateOrderDto);
+                return Ok(updatedOrder);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating order status: {ErrorMessage}", ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+        [HttpDelete("staff/delete-order/{orderId}")]
+        [Authorize(Roles = "Staff")]
+        public async Task<ActionResult<OrderStaffDTO>> DeleteOrder(string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Staff is deleting order {OrderId}", orderId);
+
+                var deletedOrder = await _orderService.DeleteOrderAsync(orderId);
+                return Ok(new { message = "Order deleted successfully", deletedOrder });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting order {OrderId}: {ErrorMessage}", orderId, ex.Message);
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 
 

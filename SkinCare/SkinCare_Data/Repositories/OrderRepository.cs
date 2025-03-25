@@ -83,6 +83,11 @@ namespace SkinCare_Data.Repositories
             _context.Orders.Update(order);
             return Task.CompletedTask;
         }
+        public async Task DeleteOrderAsync(Order order)
+        {
+            _context.OrderDetails.RemoveRange(order.OrderDetails); // Delete order details
+            _context.Orders.Remove(order); // Delete order itself
+        }
 
         public Task UpdateOrderDetailAsync(OrderDetail orderDetail)
         {

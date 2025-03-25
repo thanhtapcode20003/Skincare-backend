@@ -136,6 +136,167 @@ namespace SkinCare_Service
                 throw;
             }
         }
+        public async Task<OrderStaffDTO> CreateOrderForStaffAsync(CreateOrderForStaffDTO createOrderDto)
+        {
+            try
+            {
+                _logger.LogInformation("Staff creating a new order for User {UserId}", createOrderDto.UserId);
+
+                var orderId = $"O{Guid.NewGuid().ToString().Substring(0, 6).ToUpper()}";
+                var newOrder = new Order
+                {
+                    OrderId = orderId,
+                    UserId = createOrderDto.UserId,
+                    OrderStatus = "Pending",
+                    TotalAmount = 0,
+                    CreateAt = DateTime.UtcNow,
+                    OrderDetails = new List<OrderDetail>()
+                };
+
+                foreach (var detail in createOrderDto.OrderDetails)
+                {
+                    var product = await _productRepository.GetByIdAsync(detail.ProductId);
+                    if (product == null)
+                    {
+                        throw new Exception($"Product with ID {detail.ProductId} not found.");
+                    }
+
+                    if (product.Quantity < detail.Quantity)
+                    {
+                        throw new Exception($"Not enough stock for product {product.ProductName}. Available: {product.Quantity}");
+                    }
+
+                    var orderDetailId = $"OD{Guid.NewGuid().ToString().Substring(0, 6).ToUpper()}";
+                    var orderDetail = new OrderDetail
+                    {
+                        OrderDetailId = orderDetailId,
+                        OrderId = orderId,
+                        ProductId = detail.ProductId,
+                        Price = product.Price,
+                        Quantity = detail.Quantity
+                    };
+
+                    newOrder.OrderDetails.Add(orderDetail);
+                    newOrder.TotalAmount += (int)(product.Price * detail.Quantity);
+
+                    product.Quantity -= detail.Quantity;
+                    await _productRepository.UpdateAsync(product);
+                }
+
+                await _orderRepository.AddOrderAsync(newOrder);
+                await _orderRepository.SaveChangesAsync();
+
+                return new OrderStaffDTO
+                {
+                    OrderId = newOrder.OrderId,
+                    UserId = newOrder.UserId,
+                    OrderStatus = newOrder.OrderStatus,
+                    TotalAmount = newOrder.TotalAmount,
+                    CreateAt = newOrder.CreateAt,
+                    OrderDetails = newOrder.OrderDetails.Select(od => new OrderDetailDTO
+                    {
+                        ProductId = od.ProductId,
+                        ProductName = od.Product.ProductName,
+                        Price = od.Price,
+                        Quantity = od.Quantity
+                    }).ToList()
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error creating order for staff.");
+                throw;
+            }
+        }
+        public async Task<OrderStaffDTO> UpdateOrderStatusAsync(UpdateOrderStatusDTO updateOrderDto)
+        {
+            try
+            {
+                _logger.LogInformation("Updating order {OrderId} status to {NewStatus}", updateOrderDto.OrderId, updateOrderDto.NewStatus);
+
+                var order = await _orderRepository.GetByIdAsync(updateOrderDto.OrderId);
+                if (order == null)
+                {
+                    throw new Exception($"Order with ID {updateOrderDto.OrderId} not found.");
+                }
+
+                // Prevent updating completed orders
+                if (order.OrderStatus == "Completed")
+                {
+                    throw new Exception("Cannot update a completed order.");
+                }
+
+                // Only allow valid status updates
+                var validStatuses = new[] { "Pending", "Processing", "Shipped", "Completed" };
+                if (!Array.Exists(validStatuses, status => status == updateOrderDto.NewStatus))
+                {
+                    throw new Exception("Invalid order status.");
+                }
+
+                order.OrderStatus = updateOrderDto.NewStatus;
+                await _orderRepository.UpdateOrderAsync(order);
+                await _orderRepository.SaveChangesAsync();
+
+                return new OrderStaffDTO
+                {
+                    OrderId = order.OrderId,
+                    UserId = order.UserId,
+                    OrderStatus = order.OrderStatus,
+                    TotalAmount = order.TotalAmount,
+                    CreateAt = order.CreateAt
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error updating order status.");
+                throw;
+            }
+        }
+        public async Task<OrderStaffDTO> DeleteOrderAsync(string orderId)
+        {
+            try
+            {
+                _logger.LogInformation("Deleting order {OrderId}", orderId);
+
+                var order = await _orderRepository.GetByIdAsync(orderId);
+                if (order == null)
+                {
+                    throw new Exception($"Order with ID {orderId} not found.");
+                }
+
+                // Prevent deleting completed orders
+                if (order.OrderStatus == "Completed")
+                {
+                    throw new Exception("Cannot delete a completed order.");
+                }
+
+                var deletedOrder = new OrderStaffDTO
+                {
+                    OrderId = order.OrderId,
+                    UserId = order.UserId,
+                    OrderStatus = order.OrderStatus,
+                    TotalAmount = order.TotalAmount,
+                    CreateAt = order.CreateAt,
+                    OrderDetails = order.OrderDetails.Select(od => new OrderDetailDTO
+                    {
+                        ProductId = od.ProductId,
+                        ProductName = od.Product.ProductName,
+                        Price = od.Price,
+                        Quantity = od.Quantity
+                    }).ToList()
+                };
+
+                await _orderRepository.DeleteOrderAsync(order);
+                await _orderRepository.SaveChangesAsync();
+
+                return deletedOrder;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error deleting order {OrderId}", orderId);
+                throw;
+            }
+        }
 
         public async Task<List<OrderSummaryDto>> GetMyOrdersAsync(string userId)
         {

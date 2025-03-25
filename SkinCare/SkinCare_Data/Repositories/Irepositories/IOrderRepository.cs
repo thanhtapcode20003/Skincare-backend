@@ -1,5 +1,6 @@
 ﻿// IOrderRepository.cs
 using SkinCare_Data.Data;
+using SkinCare_Data.DTO.Order;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace SkinCare_Data.IRepositories
         Task AddOrderAsync(Order order);
         Task AddOrderDetailAsync(OrderDetail orderDetail);
         Task UpdateOrderAsync(Order order);
+        Task DeleteOrderAsync(Order order);
         Task UpdateOrderDetailAsync(OrderDetail orderDetail); // Thêm để cập nhật OrderDetail
         Task DeleteOrderDetailAsync(string orderDetailId); // Thêm để xóa OrderDetail
         Task<List<Order>> GetAllOrdersAsync();

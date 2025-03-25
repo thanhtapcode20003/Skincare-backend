@@ -16,6 +16,9 @@ namespace SkinCare_Service.IService
         Task<List<OrderDetailResponseDto>> DeleteOrderDetailAsync(string userId, string orderDetailId); // Thêm để xóa OrderDetail
         Task<List<OrderStaffDTO>> GetAllOrdersForStaffAsync();
         Task<OrderStaffDTO> GetOrderDetailsForStaffAsync(string orderId);
+        Task<OrderStaffDTO> CreateOrderForStaffAsync(CreateOrderForStaffDTO createOrderDto);
+        Task<OrderStaffDTO> UpdateOrderStatusAsync(UpdateOrderStatusDTO updateOrderDto);
+        Task<OrderStaffDTO> DeleteOrderAsync(string orderId);
 
     }
 }
