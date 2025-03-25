@@ -239,7 +239,6 @@ namespace SkinCare.Controllers
         }
 
 
-        // Thêm endpoint để xử lý callback từ VNPay
         [HttpGet("vnpay-callback")]
         public async Task<ActionResult> VNPayCallback()
         {
@@ -247,10 +246,8 @@ namespace SkinCare.Controllers
             {
                 _logger.LogInformation("Received VNPay Sandbox callback");
 
-                // Extract query parameters from the VNPAY callback
                 var vnpayData = Request.Query.ToDictionary(k => k.Key, v => v.Value.ToString());
 
-                // Log all VNPAY parameters for debugging
                 foreach (var param in vnpayData)
                 {
                     _logger.LogInformation("VNPAY Param: {Key} = {Value}", param.Key, param.Value);
@@ -258,21 +255,19 @@ namespace SkinCare.Controllers
 
                 bool isSuccess = await _orderService.HandleVNPayCallbackAsync(vnpayData);
 
-                // IMPORTANT: Forward all original VNPAY parameters exactly as received
-                // This ensures the frontend gets the parameters it expects (vnp_ResponseCode, vnp_Amount, vnp_TxnRef)
+                
                 string queryString = string.Join("&", Request.Query.Select(x => $"{x.Key}={x.Value}"));
                 string redirectUrl = $"http://localhost:5173/payment/result?{queryString}";
 
                 _logger.LogInformation("Redirecting to: {RedirectUrl}", redirectUrl);
 
-                await Task.Delay(5000); // 5 seconds delay
+                await Task.Delay(5000); 
                 return Redirect(redirectUrl);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error handling VNPay Sandbox callback: {ErrorMessage}", ex.Message);
 
-                // On error, redirect to the frontend with a failed status
                 string redirectUrl = $"http://localhost:5173/payment/result?vnp_ResponseCode=99&vnp_Amount=0&vnp_TxnRef=error";
                 return Redirect(redirectUrl);
             }
