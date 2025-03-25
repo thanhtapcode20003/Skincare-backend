@@ -11,7 +11,9 @@ using SkinCare_Data.IRepositories;
 using SkinCare_Data.Repositories;
 using SkinCare_Service.IService;
 using SkinCare_Service;
-using SkinCare.Utilities; // Thêm namespace cho VNPayHelper
+using SkinCare.Utilities;
+using SkinCare_Service.Service.Iservice;
+using SkinCare_Data.Repositories.Irepositories; // Thêm namespace cho VNPayHelper
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -126,6 +128,10 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IRatingsFeedbackService, RatingsFeedbackService>();
+builder.Services.AddScoped<IRatingsFeedbackRepository, RatingsFeedbackRepository>();
+
+
 builder.Services.AddSingleton<VNPayHelper>(); // Đăng ký VNPayHelper
 
 var app = builder.Build();
